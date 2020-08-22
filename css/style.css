@@ -16,9 +16,13 @@ ul{
     background-position: right bottom;
     background-size: 300px 300px;
 }
-.topMost nav{
+.topnav{
     display: flex;
-    width: 100%;
+    width: 94%;
+    position: absolute;
+    margin: auto;
+    top: 40px;
+    left: 3%;
 }
 .navCap{
     width: 40%;
@@ -66,7 +70,6 @@ ul{
     font-weight: 100;
     letter-spacing: 1px;
 }
-
 /* about me section */
 .aboutMeSection{
     border-top: 1px solid;
@@ -135,7 +138,7 @@ ul{
 /* client testmonials */
 .testMSection{
     width: 90%;
-    margin: auto;
+    margin: 40px auto;
 }
 .testMSection h3{
     background: -webkit-linear-gradient(yellow,red);
@@ -202,6 +205,7 @@ ul{
 }
 .FskillSec ul li h6{
     width: 20%;
+    font-weight: 200;
 }
 .skillBar{
     min-height: 20px;
@@ -228,14 +232,10 @@ ul{
 }
 
 /* styles for contact us page */
-.contactNavSec{
-    width: 90%;
-    margin: 20px auto 70px;
-}
 .contactMainSec{
     display: flex;
-    width: 90%;
-    margin: 10px auto 50px;
+    width: 95%;
+    margin: 200px auto 50px;
 }
 .contactMainSec div{
     width: 50%;
@@ -298,4 +298,120 @@ ul{
     background-clip: text;
     -webkit-text-fill-color: transparent;
     cursor: pointer;
+}
+
+/* blog styles */
+
+.blogSection{
+    margin: 200px auto;
+    width: 95%;
+    display: flex;
+}
+.blogMainSection{
+    max-width: 65%;
+    margin-right: 5%;
+}
+.blogMainSection h3{
+    text-transform: uppercase;
+    font-weight: 100;
+}
+.blogs{
+    display: flex;
+    max-width: 100%;
+    margin-top: 40px;
+}
+.singleBlog{
+    width: 45%;
+    margin-right: 5%;
+    position: relative;
+}
+.singleBlog h6{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+.singleBlog div{
+    display: flex;
+    margin-top: -10px;
+}
+.singleBlog img{
+    width: 100%;
+    height: 230px;
+}
+#blogauthor, #blogdatepublished{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 12px;
+    text-transform: uppercase;
+}
+.hoverableLink{
+    min-height: 60%;
+    min-width: 80%;
+    margin: auto;
+    background-color: #fff;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 10px;
+    opacity: 0;
+}
+.hoverableLink span{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    background: transparent;
+    color: black;
+    cursor: pointer;
+}
+.hoverableLink:hover{
+    opacity: 0.5;
+}
+/* #blogauthor{
+
+}
+#blogdatepublished{
+
+} */
+.blogSideBar{
+    width: 30%;
+}
+.blogSideBar h3{
+    text-transform: uppercase;
+    font-weight: 100;
+}
+.blogSideBar form{
+    padding: 1px 1px 1px 1px;
+    background: linear-gradient(to bottom,yellow,red);
+    width: 80%;
+    margin: 40px 0px;
+}
+.searchInput{
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 4px;
+    border-color: transparent;
+    width: 100%;
+} 
+.blogSideBar .tags{
+    display: flex;
+    align-content: space-around;
+}
+.tags div{
+    padding: 4px 0px 0px 0px;
+    background: linear-gradient(to bottom,yellow,red);
+    margin-right: 10px;
+    border-radius: 10px;
+}
+.singleTag{
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 4px;
+}
+.singleTag:hover{
+    color: lawngreen;
 }

@@ -8,80 +8,162 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <div>
+    <nav class="topnav">
+        <div class="navCap">
             <a href="">Sebastien</a>
         </div>
-        <div>
-            <a href="#">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="pages/blog.html">Blog</a>
-            <a href="pages/contact.html">Contact me</a>
+        <div class="navlinksBox">
+            <div><a href="#">Home</a></div>
+            <div><a href="#projects">Projects</a></div>
+            <div><a href="blog.html">Blog</a></div>
+            <div><a href="contact.html">Contact me</a></div>
         </div>
     </nav>
-    <main>
-        <div>
+    <main class="blogSection">
+        <div class="blogMainSection">
             <h3>Top Readings</h3>
-            <div>
-                <div>
-                    <img src="" alt="">
+            <div class="blogs">
+                <div class="singleBlog">
+                    <img src="../images/port/1.PNG" alt="">
                     <h6>Whats new about web development</h6>
                     <div>
-                        <span>Author: Sebastien</span>
-                        <span>10/08/2020</span>
+                        <span id="blogauthor">Author: Sebastien</span>
+                        <span id="blogdatepublished">10/08/2020</span>
+                    </div>
+                    <div class="hoverableLink">
+                        <span><a href="blogSingle.html">view more</a> </span>
+                    </div>
+                </div>
+                <div class="singleBlog">
+                    <img src="../images/port/5.PNG" alt="">
+                    <h6>Whats new about web development</h6>
+                    <div>
+                        <span id="blogauthor">Author: Sebastien</span>
+                        <span id="blogdatepublished">10/08/2020</span>
+                    </div>
+                    <div class="hoverableLink">
+                        <span><a href="blogSingle.html">view more</a> </span>
+                    </div>
+                </div>
+            </div>
+            <div class="blogs">
+                <div class="singleBlog">
+                    <img src="../images/port/7.PNG" alt="">
+                    <h6>Whats new about web development</h6>
+                    <div>
+                        <span id="blogauthor">Author: Sebastien</span>
+                        <span id="blogdatepublished">10/08/2020</span>
+                    </div>
+                    <div class="hoverableLink">
+                        <span><a href="blogSingle.html">view more</a> </span>
+                    </div>
+                </div>
+                <div class="singleBlog">
+                    <img src="../images/port/3.PNG" alt="">
+                    <h6>Whats new about web development</h6>
+                    <div>
+                        <span id="blogauthor">Author: Sebastien</span>
+                        <span id="blogdatepublished">10/08/2020</span>
+                    </div>
+                    <div class="hoverableLink">
+                        <span><a href="blogSingle.html">view more</a> </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
+        <div class="blogSideBar">
             <h3>Search</h3>
             <form action="">
-                <input type="text" name="" id="" placeholder="Search">
+                <input type="text" name="" id="" placeholder="Search" class="searchInput">
             </form>
             <h3>Tags</h3>
-            <div>
-                <a href="">Javascript</a>
-                <a href="">Web Dev</a>
-                <a href="">Hmtl 5</a>
+            <div class="tags">
+                <div><a href="" class="singleTag">Javascript</a></div>
+                <div><a href="" class="singleTag">Web Dev</a></div>
+                <div><a href="" class="singleTag">Hmtl 5</a></div>
             </div>
         </div>
     </main>
-    <section class="portifolioSection">
+    <section class="portifolioSection" id="projects">
         <nav>
-            <a href="">Ecommerce</a>
-            <a href="">web developer</a>
-            <a href="">Personal</a>
-            <a href="">Wordpress</a>
-            <a href="">Agency</a>
-            <a href="">Real Estate</a>
+            <a href="" class="portLinks">Ecommerce</a>
+            <a href="" class="portLinks">web developer</a>
+            <a href="" class="portLinks">Personal</a>
+            <a href="" class="portLinks">Wordpress</a>
+            <a href="" class="portLinks">Agency</a>
+            <a href="" class="portLinks">Real Estate</a>
         </nav>
-        <div>
+        <div class="portifolios">
             <div>
-                <a href=""><img src="" alt=""></a>
+                <a href=""><img src="../images/port/1.PNG" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="../images/port/2.PNG" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="../images/port/3.PNG" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="../images/port/4.PNG" alt=""></a>
+            </div>
+        </div>
+        <div class="portifolios">
+            <div>
+                <a href=""><img src="../images/port/5.PNG" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="../images/port/6.PNG" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="../images/port/7.PNG" alt=""></a>
+            </div>
+            <div>
+                <a href=""><img src="../images/port/8.PNG" alt=""></a>
             </div>
         </div>
     </section>
     <section class="footerSection">
-        <div>
+        <div class="FaboutSec">
             <h4>About Me</h4>
-            <p>Lorem ipsum dolor sit amet.
-                Lorem ipsum dolor sit amet.
+            <p>
+                am Web designer and developer enthusiast, proffessionalism and love of the outstanding project is what drive my 
+                energy toward the work and what brings more happy client to me,
             </p>
             <ul>
                 <li><img src="" alt=""> Kigali/Rwanda 316st</li>
                 <li><img src="" alt=""> +250-788-451-691</li>
             </ul>
         </div>
-        <div>
+        <div class="FskillSec">
             <h4>My skills</h4>
             <ul>
                 <li>
-                    <h6></h6>
-                    <div></div>
+                    <h6>Html 5</h6>
+                    <div class="skillBar">
+                        <div class="skillShow"></div>
+                        <div class="percent">50%</div>
+                    </div>
                 </li>
                 <li>
-                    <h6></h6>
-                    <div></div>
+                    <h6>Css3</h6>
+                    <div class="skillBar">
+                        <div class="skillShow"></div>
+                        <div class="percent">50%</div>
+                    </div>
+                </li>
+                <li>
+                    <h6>Html 5</h6>
+                    <div class="skillBar">
+                        <div class="skillShow"></div>
+                        <div class="percent">50%</div>
+                    </div>
+                </li>
+                <li>
+                    <h6>Css3</h6>
+                    <div class="skillBar">
+                        <div class="skillShow"></div>
+                        <div class="percent">50%</div>
+                    </div>
                 </li>
             </ul>
         </div>
