@@ -17,7 +17,7 @@ ul{
     background-size: 300px 300px;
 }
 .topnav{
-    display: flex;
+    display: flex; 
     width: 94%;
     position: absolute;
     margin: auto;
@@ -31,9 +31,12 @@ ul{
     text-decoration: none; 
     font-size: 24px; 
 }
+.navlinksForPhone{
+    display: none;
+}
 .navlinksBox{
     width: 60%;
-    display: flex;
+    display: flex; 
     justify-content: flex-end;
 }
 .navlinksBox div{
@@ -98,12 +101,12 @@ ul{
 }
 .portifolioSection nav{
     margin: auto;
-    display: flex;
+    display: flex; 
     width: 60%;
     margin: auto;
 }
 .portLinks{
-    margin: 0px 10px;
+    margin: 0px 5px;
     text-decoration: none;
     font-weight: 200;
     font-size: 16px;
@@ -114,13 +117,15 @@ ul{
 .portifolios{
     margin: auto;
     margin-top: 40px;
-    display: flex;
+    display: flex; 
+    flex-wrap: wrap;
     max-width: 90%;
     align-content: space-around;
 }
 .portifolios div{
-    width: 28%;
-    margin-right: 2%;
+    width: 24%;
+    margin-right: 1%;
+    margin-bottom: 5px;
 }
 .portifolios div a img{
     max-width: 100%;
@@ -156,7 +161,8 @@ ul{
     margin-bottom: 20px;
 }
 .slider{
-    display: flex;
+    display: flex; 
+    
     width: 100%;
 }
 .slider img{
@@ -164,7 +170,8 @@ ul{
     height: 60px;
 }
 .sliderBars{
-    display: flex;
+    display: flex; 
+    
     max-width: 5%;
     margin: auto;
 }
@@ -180,13 +187,15 @@ ul{
 /* footer */
 .footerSection{
     width: 100%;
-    display: flex;
+    display: flex; 
+    
     flex-direction: row;
     padding: 10px 5%;
     align-content: flex-end;
 }
 .FaboutSec{
-    display: flex;
+    display: flex; 
+    
     flex-direction: column;
     width: 40%;
     margin-right: 20%;
@@ -194,12 +203,14 @@ ul{
     font-family: 200;
 }
 .FskillSec{
-    display: flex;
+    display: flex; 
+    
     flex-direction: column;  
     width: 40%;   
 }
 .FskillSec ul li{
-    display: flex;
+    display: flex; 
+    
     align-items: center;
     height: 30px;
 }
@@ -233,7 +244,8 @@ ul{
 
 /* styles for contact us page */
 .contactMainSec{
-    display: flex;
+    display: flex; 
+    
     width: 95%;
     margin: 200px auto 50px;
 }
@@ -277,7 +289,8 @@ ul{
     margin-bottom: 20px;
 }
 .formGroup2{
-    display: flex;
+    display: flex; 
+    
 }
 .myInput{
     width: 100%;
@@ -305,10 +318,10 @@ ul{
 .blogSection{
     margin: 200px auto;
     width: 95%;
-    display: flex;
+    display: flex; 
 }
 .blogMainSection{
-    max-width: 65%;
+    width: 65%;
     margin-right: 5%;
 }
 .blogMainSection h3{
@@ -316,13 +329,15 @@ ul{
     font-weight: 100;
 }
 .blogs{
-    display: flex;
+    display: flex; 
+    flex-wrap: wrap;
     max-width: 100%;
     margin-top: 40px;
 }
 .singleBlog{
-    width: 45%;
-    margin-right: 5%;
+    width: 32%;
+    margin-right: 1%;
+    margin-bottom: 10px;
     position: relative;
 }
 .singleBlog h6{
@@ -333,7 +348,8 @@ ul{
     text-transform: uppercase;
 }
 .singleBlog div{
-    display: flex;
+    display: flex; 
+    
     margin-top: -10px;
 }
 .singleBlog img{
@@ -370,12 +386,6 @@ ul{
 .hoverableLink:hover{
     opacity: 0.5;
 }
-/* #blogauthor{
-
-}
-#blogdatepublished{
-
-} */
 .blogSideBar{
     width: 30%;
 }
@@ -397,7 +407,8 @@ ul{
     width: 100%;
 } 
 .blogSideBar .tags{
-    display: flex;
+    display: flex; 
+    flex-wrap: wrap;
     align-content: space-around;
 }
 .tags div{
@@ -414,4 +425,83 @@ ul{
 }
 .singleTag:hover{
     color: lawngreen;
+}
+
+/* phone view */
+@media screen and (max-width: 768px) {
+    .navlinksBox{
+        display: none;
+    }
+    .navlinksForPhone{
+        display: flex; 
+        flex-direction: column;
+        margin-left: auto;
+    }
+    .navlinksForPhone div{
+        height: 4px;
+        width: 25px;
+        background: white;
+        margin-bottom: 2px;
+    }
+    .topMostBody h3{
+        margin-top: 150px;
+        font-size: 48px;
+    }
+    .portifolios div{
+        width: 49%;
+    }
+    .portifolioSection nav{
+        width: 80%;
+        margin: auto;
+        overflow-x: scroll;
+    }
+    .footerSection{
+        flex-direction: column;
+    }
+    .FaboutSec{
+        order: 1;
+        width: 95%;
+        margin:auto;
+        text-align: center;
+    }
+    .FskillSec{
+        order: 0;
+        width: 95%;
+        margin:auto;
+        text-align: center;
+    }
+    /* styles for blog */
+    .blogSection{
+        flex-wrap: wrap;
+    }
+    .blogMainSection{
+        width: 95%;
+        margin: auto;
+    }
+    .singleBlog{
+        width: 49%;
+        margin-right: 1%;
+    }
+    .blogSideBar{
+        width: 95%;
+        margin: auto;
+    }
+
+    /* styles for contact us */
+    .contactMainSec{
+        flex-wrap: wrap;
+    }
+    .contactMainSec div{
+        width: 95%;
+        margin: auto;
+    }
+    .contactLeftSec{
+        margin-bottom: 40px;;
+    }
+    .contactRightSec form{
+        margin-left: -2%;
+    }
+    .myInput{
+        margin-bottom: 20px;
+    }
 }
