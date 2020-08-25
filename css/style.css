@@ -8,6 +8,17 @@
 ul{
     list-style: none;
 }
+
+.disNone{
+    display: none;
+}
+.rotate45{
+    transform: translateY(5px) rotate(45deg);
+}
+.rotate-45{
+    transform:  rotate(-45deg);
+}
+
 .topMost{
     height: 100vh;
     padding:20px 20px;
