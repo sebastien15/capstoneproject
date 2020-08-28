@@ -1,9 +1,11 @@
 *{
-    background-color: black;
-    color: white;
+    /* background-color: #0e0202; */
+    background-color: #000000;
+    color: #fafafa;
     box-sizing: border-box;
     padding:0px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 200;
 }
 ul{
     list-style: none;
@@ -11,6 +13,12 @@ ul{
 
 .disNone{
     display: none;
+}
+.disBlock{
+    display: block !important;
+}
+.disFlex{
+    display: flex !important;
 }
 .rotate45{
     transform: translateY(5px) rotate(45deg);
@@ -34,6 +42,10 @@ ul{
     margin: auto;
     top: 40px;
     left: 3%;
+    z-index: 10;
+}
+.navlinksForPhoneBox{
+    display: none;
 }
 .navCap{
     width: 40%;
@@ -97,6 +109,8 @@ ul{
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 40px;
+    font-size: 24px;
+    line-height: 30px;
 }
 .aboutMeSection p{
     margin: auto;
@@ -105,15 +119,42 @@ ul{
     max-width: 80%;
     font-weight: 100;
     letter-spacing: 1px;
+    font-size: 20px;
+    line-height: 30px;
+}
+#myWorkLinkCont{
+    background: linear-gradient(to bottom,yellow,red);
+    padding: 10px 1px;
+    width: 92px;
+    margin: auto;
+}
+#myworklink{
+    cursor: pointer;
+    margin-bottom: 40px;
+    font-size:18px;
+    line-height: 24px;
+    padding: 10px;
+    text-decoration: none;
+}
+#myworklink span{
+    background: -webkit-linear-gradient(yellow,red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+/* portifolion section */
+
 .portifolioSection{
-    padding: 40px 20px;
+    padding: 100px 20px;
 }
 .portifolioSection nav{
     margin: auto;
     display: flex; 
-    width: 60%;
+    width: 80%;
+    align-items: center;
+}
+.portifolioSection nav div{
     margin: auto;
 }
 .portLinks{
@@ -131,7 +172,6 @@ ul{
     display: flex; 
     flex-wrap: wrap;
     max-width: 90%;
-    align-content: space-around;
 }
 .portifolios div{
     width: 24%;
@@ -151,10 +191,15 @@ ul{
 .portifolios div a img:hover{
     animation: scaleHover 1s 1 0s ease-in forwards;
 }
+
+
 /* client testmonials */
+
+
 .testMSection{
     width: 90%;
-    margin: 40px auto;
+    padding: 40px;
+    margin: auto;
 }
 .testMSection h3{
     background: -webkit-linear-gradient(yellow,red);
@@ -163,6 +208,7 @@ ul{
     -webkit-text-fill-color: transparent;
     text-align: center;
     margin-bottom: 40px;
+    font-size: 24px;
 }
 .testMSection div{
     font-weight: 400;
@@ -173,16 +219,20 @@ ul{
 }
 .slider{
     display: flex; 
-    
     width: 100%;
 }
+.slider p{
+    margin-top: 20px;
+    line-height: 28px;
+    font-size: 16px;
+}
+
 .slider img{
     border-radius: 50%;
-    height: 60px;
+    height: 100px;
 }
 .sliderBars{
     display: flex; 
-    
     max-width: 5%;
     margin: auto;
 }
@@ -199,64 +249,86 @@ ul{
 .footerSection{
     width: 100%;
     display: flex; 
-    
     flex-direction: row;
     padding: 10px 5%;
     align-content: flex-end;
+    padding-top: 100px;
+    background-image: url(../images/footerbg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.FaboutSec{
-    display: flex; 
-    
-    flex-direction: column;
-    width: 40%;
-    margin-right: 20%;
-    font-size: 14px;
-    font-family: 200;
-}
-.FskillSec{
-    display: flex; 
-    
-    flex-direction: column;  
-    width: 40%;   
-}
-.FskillSec ul li{
-    display: flex; 
-    
-    align-items: center;
-    height: 30px;
-}
-.FskillSec ul li h6{
-    width: 20%;
+.footerHeader{
+    background-color: transparent;
     font-weight: 200;
 }
-.skillBar{
-    min-height: 20px;
-    width: 80%;
-    background-color: red;
-    opacity: 0.9;
-    position: relative;
-    margin-left: 10%;
-}
-.skillShow{
-    min-height: 20px;
-    max-width: 50%;
-    background-color: yellow;
-    opacity: 0.9;
-}
-.percent{
-    position: absolute;
+.FaboutSec{
     background-color: transparent;
-    font-size: 10px;
-    font-weight: 600;
-    color: black;
-    top: 30%;
-    left: 45%;
+    display: flex; 
+    flex-direction: column;
+    width: 33%;
+    margin-right: 20%;
+    font-size: 15px;
+    line-height: 24px;
+    font-family: 200;
 }
-
+.FaboutSec p{
+    background-color: transparent;
+}
+.quickLinks{
+    background-color: transparent;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+.quickLinks ul{
+    background-color: transparent;
+}
+.quickLinks ul li {
+    background-color: transparent;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.quickLinks ul li a{
+    text-decoration: none;
+    background-color: transparent;
+}
+.quickLinks ul li a:hover{
+    color: rgba(250, 246, 10, 0.925);
+} 
+.FskillSec{
+    background-color: transparent;
+    display: flex; 
+    flex-direction: column;  
+    width: 33%;   
+}
+#Fcontacts li{
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 20px;
+}
+#Fcontacts li img{
+    height: 16px;
+    margin-right: 4px;
+}
+#Fcontacts li:nth-child(2){
+    margin-left: -5px;
+}
+.socialLinks{
+    display: flex;
+    flex-wrap: wrap;
+}
+.socialicon{
+    padding-top: 10px;
+}
+.socialicon img{
+    max-width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
 /* styles for contact us page */
 .contactMainSec{
     display: flex; 
-    
     width: 95%;
     margin: 200px auto 50px;
 }
@@ -379,7 +451,7 @@ ul{
     min-height: 60%;
     min-width: 80%;
     margin: auto;
-    background-color: #fff;
+    background-color: rgba(173, 141, 141, 0.932);
     position: absolute;
     top: 10%;
     left: 10%;
@@ -393,6 +465,11 @@ ul{
     background: transparent;
     color: black;
     cursor: pointer;
+}
+.hoverableLink span a{
+    padding: 4px;
+    cursor: pointer;
+    text-decoration: none;
 }
 .hoverableLink:hover{
     opacity: 0.5;
@@ -440,6 +517,27 @@ ul{
 
 /* phone view */
 @media screen and (max-width: 768px) {
+
+    /* client section style starts  */
+    .testMSection div{
+        font-weight: 200;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    .slider p{
+        margin-top: -4px;
+        line-height: 14px;
+        font-size: 12px;
+    }
+    .slider img{
+        height: 40px;
+    }
+    .sliderBars{
+        max-width: 25%;
+    }
+    /* client section style ends  */
+
+
     .navlinksBox{
         display: none;
     }
@@ -447,6 +545,103 @@ ul{
         display: flex; 
         flex-direction: column;
         margin-left: auto;
+    }
+    .navlinksForPhoneBox{
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        width: 70%;
+        top: 0;
+        right: 0;
+        padding: 10px;
+    }
+    .navlinksForPhoneBox hr{
+        width: 100%;
+        background-color: #fff;
+    }
+    .navProfile {
+        display: flex;
+        padding-top: 40px;
+    }
+    .imgBox{
+        width: 40%;
+        padding-top: 20px;
+    }
+    .imgBox img{
+        max-width: 80%;
+        border-radius: 5px;
+    }
+    .textBox{
+        width: 60%;
+    }
+    .textBox h4{
+        font-size: 14px;
+        font-weight: 200;
+    }
+    .textBox h6{
+        font-size: 10px;
+        margin-top: -5px;
+        font-weight: 100;
+    }
+    .textBox p{
+        font-size: 10px;
+        margin-top: -5px;
+    }
+    .textBox p span{
+        text-decoration: underline;
+        color: greenyellow;
+    }
+
+    .navNavigations{
+        padding-top: 0px;
+        font-weight: 200;
+    }
+    .phoneNavH{
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+    }
+    .navNavigations ul li{
+        list-style: none;
+        margin-bottom: 4px;
+    }
+    .navNavigations ul li a {
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 100;
+    }
+
+    .navSocioIcons div{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .navSocioIcons div img{
+        width: 10%;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .navFooter{
+        padding-top: 40px;
+    }
+    .navFooter div {
+        display: flex;
+        margin-bottom: 5px;
+        font-size: 12px;
+        font-weight: 100;
+    }
+    .navFooter div .imgH{
+        width: 20%;
+    }
+    .imgH img{
+        height: 15px;
+    }
+    .navFLinks{
+        text-decoration: none;
+    }
+    .navlinksForPhone{
+        z-index: 10;
+        position: fixed;
+        right: 15px;
     }
     .navlinksForPhone div{
         height: 4px;
@@ -456,18 +651,37 @@ ul{
     }
     .topMostBody h3{
         margin-top: 150px;
-        font-size: 48px;
+        font-size: 40px;
+        margin-bottom: 60px;
     }
     .portifolios div{
         width: 49%;
     }
-    .portifolioSection nav{
-        width: 80%;
+    .portifolioSection nav div{
+        display: flex;
+        width: 100%;
         margin: auto;
         overflow-x: scroll;
     }
+    .portLinks{
+        font-size: 12px;
+        padding: 0px 4px;
+    }
+    #Fcontacts{
+        background-color: transparent;
+        margin: auto;
+    }
+    #Fcontacts li{
+        background-color: transparent;
+        margin: auto;
+    }
+    #Fcontacts li img{
+        background-color: transparent;
+    }
     .footerSection{
         flex-direction: column;
+        align-items: center;
+        background-position: bottom;
     }
     .FaboutSec{
         order: 1;
@@ -475,15 +689,19 @@ ul{
         margin:auto;
         text-align: center;
     }
+    .quickLinks{
+        text-align: center;
+    }
     .FskillSec{
         order: 0;
         width: 95%;
-        margin:auto;
+        margin: auto;
         text-align: center;
     }
     /* styles for blog */
     .blogSection{
         flex-wrap: wrap;
+        margin: 100px auto;
     }
     .blogMainSection{
         width: 95%;
@@ -500,6 +718,7 @@ ul{
 
     /* styles for contact us */
     .contactMainSec{
+        margin-top: 100px;
         flex-wrap: wrap;
     }
     .contactMainSec div{
@@ -514,5 +733,8 @@ ul{
     }
     .myInput{
         margin-bottom: 20px;
+    }
+    .footerSection{
+        padding-top: 20px;
     }
 }
