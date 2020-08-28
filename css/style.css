@@ -395,7 +395,9 @@ ul{
     -webkit-text-fill-color: transparent;
     cursor: pointer;
 }
-
+#email{
+    text-transform: none;
+}
 /* blog styles */
 
 .blogSection{

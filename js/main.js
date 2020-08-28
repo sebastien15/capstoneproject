@@ -13,3 +13,24 @@ phoneNav.addEventListener('click',()=>{
     let navlinksForPhoneBox = document.querySelector('.navlinksForPhoneBox');
     navlinksForPhoneBox.classList.toggle('disFlex');
 })
+let myform = document.querySelector('#contactForm');
+myform.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let firstName = document.querySelector('#firstName').value;
+    let secondName = document.querySelector('#lastName').value;
+    let email = document.querySelector('#email').value;
+    let message = document.querySelector('#message').value;
+
+    var atposition=email.indexOf("@");  
+    var dotposition=email.lastIndexOf("."); 
+    
+    if (firstName == "" || secondName == "" || email == "" || message == "") {
+        alert("First name, second name, email or message can' be empty ")
+    }else if(atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length){  
+        alert('enter a valid email please')
+    }else{
+        alert('successfully submited the form')
+    }
+    
+    
+})
