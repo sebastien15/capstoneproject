@@ -1,0 +1,12 @@
+.mainDashboard{
+    margin-top: 20vh;
+    display: flex;
+}
+.mainDashboard aside{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.mainDashboard main{
+    width: 70%;
+}

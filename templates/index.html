@@ -18,7 +18,7 @@
             <div><a href="#projects">Projects</a></div>
             <div><a href="pages/blog.html">Blog</a></div>
             <div><a href="pages/contact.html">Contact me</a></div>
-            <div><a id="signin">Sign in</a></div>
+            <div><a class="signin">Sign in</a></div>
         </div>
         <div class="navlinksForPhone">
             <div class="navS1"></div>
@@ -44,7 +44,7 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact me</a></li>
-                    <div><a id="signin">Sign in</a></div>
+                    <div><a  class="signin">Sign in</a></div>
                 </ul>
             </div>
             <div class="navSocioIcons">
@@ -89,12 +89,20 @@
             <h3>Sign in</h3>
         </div>
         <div class="body">
-            <form >
-                <input type="text" class="signInInputs">
-                <input type="password" class="signInInputs">
+            <form id="signInForm">
+                <div class="errorBox disNone" id="unameErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <input type="text" class="signInInputs" id="uname" placeholder="Username">
+                <div class="errorBox disNone" id="passErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <input type="password" class="signInInputs" id="pass" placeholder="password">
                 <div id="remForgBox">
                     <div id="rememberB">
-                        <input type="checkbox" name="" id="" class="signInInputs">
+                        <input type="checkbox" name="" id="rem" class="signInInputs">
                         <span>Rember me</span>
                     </div>
                     <div id="forgotB">
@@ -206,32 +214,19 @@
             <ul id="Fcontacts">
                 <li><img src="images/location icon.png" alt=""> Kigali/Rwanda 316st</li>
                 <li><img src="images/phone.png" alt=""> +250-788-451-691</li>
+                <li>User Location</li>
+                <li id="demo"></li>
             </ul>
         </div>
     </section>
-    <script src="js/main.js"></script>
+    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
-
+    
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
-
-    <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyDh25jXvYwoKsni_B-5OGhQHv5-8oleKFM",
-        authDomain: "portifolio-eb3fa.firebaseapp.com",
-        databaseURL: "https://portifolio-eb3fa.firebaseio.com",
-        projectId: "portifolio-eb3fa",
-        storageBucket: "portifolio-eb3fa.appspot.com",
-        messagingSenderId: "669619955074",
-        appId: "1:669619955074:web:fc74591609a845f4bb9b9b",
-        measurementId: "G-QM0HQJPGWJ"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-    </script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+        <script src="js/firebase.js"></script>
+        <script src="js/main.js"></script>
 </body>
 </html>

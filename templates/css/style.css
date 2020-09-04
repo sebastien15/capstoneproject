@@ -12,13 +12,19 @@ ul{
 }
 
 .disNone{
-    display: none;
+    display: none !important;
 }
 .disBlock{
     display: block !important;
 }
 .disFlex{
     display: flex !important;
+}
+#unameErrorBox{
+    margin: 4px 0px !important;
+}
+#passErrorBox{
+    margin: 4px 0px !important;
 }
 .rotate45{
     transform: translateY(5px) rotate(45deg);
