@@ -19,39 +19,43 @@
 
   //create element and render contacts
 
-//   <div class="oneArt">
-//       <h3>NdagijimanaSeba</h3>
-//       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
-//       <footer>
-//           <a href="mailto:ndase15ba@gmail.com" class="artEdit">Mail Me</a>
-//           <a href="" class="artDel">Delete</a>
-//       </footer>
-//   </div>
   function renderContacts(doc) {
       let coverDiv = document.createElement('div');
       let conth3    = document.createElement('h3');
       let messageP    = document.createElement('p');
       let messageF    = document.createElement('footer');
       let mailButton    = document.createElement('a');
+      let readButton    = document.createElement('a');
       let delButton    = document.createElement('a');
 
       coverDiv.setAttribute('data-id', doc.id);
       coverDiv.setAttribute('class', 'oneArt');
       mailButton.setAttribute('href','mailto:'+ doc.data().email);
-      mailButton.setAttribute('class','artEdit');
+      mailButton.setAttribute('class','contEdit');
       mailButton.textContent = "Mail me";
-      delButton.setAttribute('class','artDel');
+      readButton.setAttribute('class','contRead');
+      readButton.textContent = "Mark as Read";
+      delButton.setAttribute('class','contDel');
       delButton.textContent = 'Delete';
       conth3.textContent = doc.data().firstName;
       messageP.textContent = doc.data().message;
 
       messageF.appendChild(mailButton);
+      messageF.appendChild(readButton);
       messageF.appendChild(delButton);
       coverDiv.appendChild(conth3);
       coverDiv.appendChild(messageP);
       coverDiv.appendChild(messageF);
 
       allcontacts.appendChild(coverDiv);
+
+      delButton.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        let id = e.target.parentElement.parentElement.getAttribute('data-id')
+        // db.collection('contacts').doc(id).delete()
+        db.collection('contacts').doc(id).delete().then(fireSuccess());
+      })
+
   }
 
   db.collection('contacts').get().then((snapshot)=>{
@@ -59,3 +63,23 @@
         renderContacts(doc)
     })
   })
+
+
+  // saving contac
+
+  function saveContact(firstName,secondName,email,message) {
+    db.collection('contacts').add({
+      firstName: firstName,
+      secondName: secondName,
+      email: email,
+      message: message
+    })
+  }
+
+  // success message
+
+  function fireSuccess(){
+    let successAlert = document.querySelector('.successAlert');
+    successAlert.style.display = 'flex'
+    successAlert.style.alignContent = 'space-between'
+  }

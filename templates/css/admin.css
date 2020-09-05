@@ -73,6 +73,35 @@
     width: 49%;
     text-align: center;
 } 
+.contEdit{
+    padding: 5px 8px;
+    background-color:rgba(0, 0, 255, 0.938);
+    color:white;
+    text-decoration: none;
+    width: 30%;
+    margin-right: 2%;
+    text-align: center;
+    cursor: pointer;
+} 
+.contRead{
+    padding: 5px 8px;
+    background-color:rgba(87, 163, 56, 0.952);
+    color:white;
+    text-decoration: none;
+    width: 30%;
+    margin-right: 2%;
+    text-align: center;
+    cursor: pointer;
+} 
+.contDel{
+    padding: 5px 8px;
+    background-color:rgba(189, 39, 39, 0.733);
+    color:white;
+    text-decoration: none;
+    width:30%;
+    text-align: center;
+    cursor: pointer;
+} 
 .createArt form{
     display: flex;
     flex-direction: column;
@@ -106,8 +135,12 @@
     cursor: pointer;
     border: 1px solid white;
 } 
-
-
+.successAlert{
+    display: none;
+    width: 100%;
+    align-content: space-between;
+    color: greenyellow;
+}
 /* tabs  styles     */
 
 .mainTab {
@@ -116,3 +149,4 @@
 .contactTa {
     display: none;
 }
+

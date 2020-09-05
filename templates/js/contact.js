@@ -34,6 +34,10 @@ myform.addEventListener('submit',(e)=>{
         })
         if (true) {window.scrollTo(0,0)}
     }else{
-        alert('successfully submited the form')
+        saveContact(firstName,secondName,email,message)
+        document.querySelector('#firstName').value =""
+        document.querySelector('#lastName').value =""
+        document.querySelector('#email').value =""
+        document.querySelector('#message').value =""
     }    
 })
