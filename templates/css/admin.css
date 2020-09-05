@@ -103,3 +103,13 @@
     cursor: pointer;
     border: 1px solid white;
 } 
+
+
+/* tabs  styles     */
+
+.mainTab {
+    display: block;
+}
+.contactTa {
+    display: none;
+}

@@ -20,7 +20,10 @@ phoneNav.addEventListener('click',()=>{
 {
     let signButton = document.querySelectorAll('.signin');
     let loginModal = document.querySelector('.loginModal');
+    let registerModal = document.querySelector('.registerModal');
     let loginCloser = document.querySelector('#closeL');
+    let registerLink = document.querySelector('#registerLink');
+    let loginLink = document.querySelector('#loginLink');
 
     signButton.forEach(element => {
         
@@ -30,6 +33,15 @@ phoneNav.addEventListener('click',()=>{
     });
     loginCloser.addEventListener('click',()=>{
         loginModal.style.display="none";
+    })
+    registerLink.addEventListener('click',()=>{
+        loginModal.style.display="none";
+        registerModal.style.display="flex";
+    })
+    loginLink.addEventListener('click',()=>{
+        registerModal.style.display="none";
+        loginModal.style.display="flex";
+        loginModal.style.flexDirection="column";
     })
 }
 
@@ -78,4 +90,9 @@ function pushData(myuname, mypass){
         "<br> Your Longitude is: " + position.coords.longitude;
     }
     getLocation()
+}
+
+function displayTab(currentTab){
+    let tabs = document.querySelectorAll('.tab');
+    
 }

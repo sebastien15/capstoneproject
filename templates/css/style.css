@@ -35,6 +35,46 @@ ul{
 .signin{
     cursor: pointer;
 }
+.registerModal{
+    position: fixed;
+    top: 20vh;
+    left: 35vw;
+    width: 30vw;
+    border: 0.5px solid #fafafa;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    display: none;
+    flex-direction: column !important;
+}
+#closeR {
+    position: absolute;
+    margin-left: 48%;
+}
+#RegisterForm{
+    display: flex;
+    flex-direction: column;
+}
+#registerB{
+    margin: 20px 0px;
+    border: 0.5px solid #fafafa;
+    padding: 10px 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#registerB:hover{
+    color: greenyellow;
+    border-color: greenyellow;
+}
+#loginLink{
+    font-size: 12px;
+    cursor: pointer;
+}
+#loginLink:hover{
+    color: greenyellow;
+}
+
 .loginModal{
     position: fixed;
     top: 30vh;
@@ -47,7 +87,7 @@ ul{
     text-transform: uppercase;
     display: none;
 }
-#closer{
+.closer{
     position: relative;
     cursor: pointer;
 }
@@ -55,7 +95,8 @@ ul{
     position: absolute;
     margin-left: 48%;
 }
-.loginModal header{
+
+.ModalHeader{
     font-size: 14px;    
 }
 .loginModal .body form{
