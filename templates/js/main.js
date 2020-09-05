@@ -91,8 +91,3 @@ function pushData(myuname, mypass){
     }
     getLocation()
 }
-
-function displayTab(currentTab){
-    let tabs = document.querySelectorAll('.tab');
-    
-}

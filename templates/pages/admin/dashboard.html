@@ -125,7 +125,6 @@
             <div class="tab mainTab">
                 <div class="modalHeader">
                     <h3>All Articles</h3>
-                    <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
                 </div>
                 <div class="allArt">
                     <div class="oneArt">
@@ -171,7 +170,11 @@
                 </div>
             </div>
             <div class="tab contactTab">
-                hello
+                <div class="modalHeader">
+                    <h3>All Messages</h3>
+                </div>
+                <div class="allArt allContacts">
+                </div>
             </div>
         </main>
     </section>
@@ -214,7 +217,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script> 
 
         <script src="../../js/firebase.js"></script>
-        <!-- <script src="../../js/main.js"></script> -->
+        <script src="../../js/admin.js"></script>
 
     <script>
         let createF = document.querySelector('#createF');
@@ -229,8 +232,6 @@
                 // saveArticle(Mytitle, Mybody);
             }
         })
-
-
     </script>
 </body>
 </html>

@@ -46,8 +46,11 @@
     width: 100%;
 }
 .oneArt{
-    width: 40%;
+    max-width: 40%;
     margin: 5%;
+}
+.oneArt p{
+    max-width: 90% !important;
 }
 .oneArt footer{
     width: 100%;
