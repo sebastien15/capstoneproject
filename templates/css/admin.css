@@ -1,0 +1,115 @@
+.mainDashboard{
+    margin-top: 20vh;
+    display: flex;
+}
+.mainDashboard aside{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.mainDashboard aside hr{
+    width: 60%;
+    margin-right: 40%;
+    margin-bottom: 30px;
+}
+.links{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.mainDashboard main{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.Modal{
+    position: absolute;
+    top: 20vh;
+    left: 10vw;
+    width: 80vw;
+    padding: 10px;
+    border: 1px solid white;
+}
+.modalHeader{
+    display: flex;
+    align-items: center;
+}
+.modalHeader p{
+    width: 90%;
+}
+.modalHeader span{
+    width: 10%;
+    cursor: pointer;
+}
+.allArt{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.oneArt{
+    width: 40%;
+    margin: 5%;
+}
+.oneArt footer{
+    width: 100%;
+    display: flex;
+}
+.artEdit{
+    padding: 5px 8px;
+    background-color:rgba(0, 0, 255, 0.938);
+    color:white;
+    text-decoration: none;
+    width: 49%;
+    margin-right: 2%;
+    text-align: center;
+} 
+.artDel{
+    padding: 5px 8px;
+    background-color:rgba(189, 39, 39, 0.733);
+    color:white;
+    text-decoration: none;
+    width: 49%;
+    text-align: center;
+} 
+.createArt form{
+    display: flex;
+    flex-direction: column;
+}
+.formGroup{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.formGroup label{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.formGroup input{
+    font-size: 12px;
+    padding: 4px;
+    border: 0.5px solid white;
+}
+.formGroup textarea{
+    font-size: 12px;
+    border: 0.5px solid white;
+    padding: 10px;
+}
+.subButton{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid white;
+} 
+
+
+/* tabs  styles     */
+
+.mainTab {
+    display: block;
+}
+.contactTa {
+    display: none;
+}

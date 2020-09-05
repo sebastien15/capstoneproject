@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <nav class="topnav">
+        <div class="navCap">
+            <a href="">Sebastien</a>
+        </div>
+        <div class="navlinksBox">
+            <div><a href="../index.html">Home</a></div>
+            <div><a href="#projects">Projects</a></div>
+            <div><a href="./blog.html">Blog</a></div>
+            <div><a href="./contact.html">Contact me</a></div>
+            <div><a class="signin">Sign in</a></div>
+        </div>
+        <div class="navlinksForPhone">
+            <div class="navS1"></div>
+            <div class="navS2"></div>
+            <div class="navS3"></div>
+        </div>
+        <div class="navlinksForPhoneBox">
+            <div class="navProfile">
+                <div class="imgBox">
+                    <img src="../../images/seba.png" alt="">
+                </div>
+                <div class="textBox">
+                    <h4>Sebastien</h4>
+                    <h6>Full stack web developer</h6>
+                    <p>Status: <span>Online</span></p>
+                </div>
+            </div>
+            <hr>
+            <div class="navNavigations">
+                <h4 class="phoneNavH">Navigators</h4>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact me</a></li>
+                    <div><a  class="signin">Sign in</a></div>
+                </ul>
+            </div>
+            <div class="navSocioIcons">
+                <h4 class="phoneNavH">Know me</h4>
+                <div class="socioIcons">
+                    <a href="https://twitter.com/NdagijimanaSeba" class="socialicon"><img src="../../images/twitter.png" alt="" width="100%"></a>
+                    <a href="https://web.facebook.com/ndagijimana.sebastien" class="socialicon"><img src="../../images/fb.png" alt="" width="100%"></a>
+                    <a href="https://www.instagram.com/sebz_250/" class="socialicon"><img src="../../images/insta.png" alt="" width="100%"></a>
+                    <a href="www.linkedin.com/in/ndagijimana-sebastien-7016a0154" class="socialicon"><img src="../../images/linkdin.png" alt="" width="100%"></a>
+                    <a href="https://wa.link/0caw88" class="socialicon"><img src="../../images/tsapp.png" alt="" width="100%"></a>
+                    <a href="" class="socialicon"><img src="../../images//skype.png" alt="" width="100%"></a>
+                </div>
+            </div>
+            <div class="navFooter">
+                <div>
+                    <div class="imgH">
+                        <img src="../../images/location icon.png" alt="" srcset="">
+                    </div>
+                    <span>Kigali/Rwanda KG 316st</span>
+                </div>
+                <div>
+                    <div class="imgH">
+                        <img src="../../images/phone.png" alt="" srcset="" style="margin-left: -6px;">
+                    </div>
+                    <span><a class="navFLinks" href="tel:+250788561691">+250 788451691</a></span>
+                </div>
+                <div>
+                    <div class="imgH">
+                        <img src="../../images/phone.png" alt="" srcset="" style="margin-left: -6px;">
+                    </div>
+                    <span><a class="navFLinks" href="mailto:ndase15ba@gmail.com">ndase15ba@gmail.com</a></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="loginModal">
+        <div id="closer">
+            <span id="closeL">X</span>
+        </div>
+        <div class="header">
+            <h3>Sign in</h3>
+        </div>
+        <div class="body">
+            <form id="signInForm">
+                <div class="errorBox disNone" id="unameErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <input type="text" class="signInInputs" id="uname" placeholder="Username">
+                <div class="errorBox disNone" id="passErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <input type="password" class="signInInputs" id="pass" placeholder="password">
+                <div id="remForgBox">
+                    <div id="rememberB">
+                        <input type="checkbox" name="" id="rem" class="signInInputs">
+                        <span>Rember me</span>
+                    </div>
+                    <div id="forgotB">
+                        <a href="">Forgot password?</a>
+                    </div>
+                </div>
+                <button type="submit" id="signInB">Sign in</button>
+            </form>
+        </div>
+    </div>
+    <section class="mainDashboard">
+        <aside>
+            <h3>Dashboard</h3>
+            <hr/>
+            <a class="links" onclick="displayTab('mainTab')">All Posts</a>
+            <a class="links" onclick="document.getElementById('createModal').classList.toggle('disNone')">Create</a>
+            <a class="links" onclick="displayTab('contactTab')">Contacts</a>
+        </aside>
+        <main class="">
+            <div class="tab mainTab">
+                <div class="modalHeader">
+                    <h3>All Articles</h3>
+                    <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
+                </div>
+                <div class="allArt">
+                    <div class="oneArt">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                        <footer>
+                            <a href="" class="artEdit">Edit</a>
+                            <a href="" class="artDel">Delete</a>
+                        </footer>
+                    </div>
+                    <div class="oneArt">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                        <footer>
+                            <a href="" class="artEdit">Edit</a>
+                            <a href="" class="artDel">Delete</a>
+                        </footer>
+                    </div>
+                    <div class="oneArt">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                        <footer>
+                            <a href="" class="artEdit">Edit</a>
+                            <a href="" class="artDel">Delete</a>
+                        </footer>
+                    </div>
+                    <div class="oneArt">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                        <footer>
+                            <a href="" class="artEdit">Edit</a>
+                            <a href="" class="artDel">Delete</a>
+                        </footer>
+                    </div>
+                    <div class="oneArt">
+                        <h3>Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                        <footer>
+                            <a href="" class="artEdit">Edit</a>
+                            <a href="" class="artDel">Delete</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="tab contactTab">
+                hello
+            </div>
+        </main>
+    </section>
+    <!-- <div class="Modal disNone" id="allModal">
+        <div class="allArt">
+            <div class="oneArt">
+                <h3>Title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                <footer>
+                    <a href="" class="artEdit">Edit</a>
+                    <a href="" class="artDel">Delete</a>
+                </footer>
+            </div>
+        </div>
+    </div> -->
+    <div class="Modal disNone" id="createModal">
+        <div class="modalHeader">
+            <p>Add an Articles</p>
+            <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
+        </div>
+        <div class="CreatArt">
+            <form action="" id="createF">
+                <div class="formGroup">
+                    <label for="">Title</label>
+                    <input type="text" name="" id="artTitle" placeholder="Add Title">
+                </div>
+                <div class="formGroup">
+                    <label for="">body</label>
+                    <textarea name="" id="artBody" cols="30" rows="10">
+                    </textarea>
+                </div>
+                <button type="submit" class="subButton">Save Article</button>
+            </form>
+        </div>
+    </div>
+    <div class="editModal"></div>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script> 
+
+        <script src="../../js/firebase.js"></script>
+        <!-- <script src="../../js/main.js"></script> -->
+
+    <script>
+        let createF = document.querySelector('#createF');
+        createF.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let Mytitle = document.querySelector('#artTitle').value
+            let Mybody = document.querySelector('#artBody').value
+
+            if(Mytitle == "" || Mybody ==""){
+                alert("all fields are needed");
+            }else{
+                // saveArticle(Mytitle, Mybody);
+            }
+        })
+
+
+    </script>
+</body>
+</html>
