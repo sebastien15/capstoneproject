@@ -12,19 +12,19 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        var authorRef = firebase.database().ref('book/');
-        authorRef.set({
-            horrible:"sebastien",
-            love: {
-                amanda: "novel",
-                Rick: "beautiful"
-            },
-            unwanted: {
-                hello: "world",
-                print: "hi",
-                nestedObj: {
-                    important: "to me",
-                    notImportant: "to others"
-                }
-            }
-        })
+        var userRef = firebase.database().ref('users/');
+        // authorRef.set({
+        //     horrible:"sebastien",
+        //     love: {
+        //         amanda: "novel",
+        //         Rick: "beautiful"
+        //     },
+        //     unwanted: {
+        //         hello: "world",
+        //         print: "hi",
+        //         nestedObj: {
+        //             important: "to me",
+        //             notImportant: "to others"
+        //         }
+        //     }
+        // })

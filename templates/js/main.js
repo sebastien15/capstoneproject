@@ -54,14 +54,12 @@ phoneNav.addEventListener('click',()=>{
     })
 }
 function pushData(myuname, mypass){
-    authorRef.push({
+    userRef.push({
         uname: myuname,
         pass: mypass
     })
     window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
 }
-
-
 
 // geolocation scripts
 {

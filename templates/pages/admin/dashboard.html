@@ -51,13 +51,12 @@
             <div class="navSocioIcons">
                 <h4 class="phoneNavH">Know me</h4>
                 <div class="socioIcons">
-                    <img src="../../images/linkdin.png" alt="">
-                    <img src="../../images/fb.png" alt="">
-                    <img src="../../images/insta.png" alt="">
-                    <img src="../../images/ytube.png" alt="">
-                    <img src="../../images/twitter.png" alt="">
-                    <img src="../../images/tsapp.png" alt="">
-                    <img src="../../images/skype.png" alt="">
+                    <a href="https://twitter.com/NdagijimanaSeba" class="socialicon"><img src="images/twitter.png" alt="" width="100%"></a>
+                    <a href="https://web.facebook.com/ndagijimana.sebastien" class="socialicon"><img src="images/fb.png" alt="" width="100%"></a>
+                    <a href="https://www.instagram.com/sebz_250/" class="socialicon"><img src="images/insta.png" alt="" width="100%"></a>
+                    <a href="www.linkedin.com/in/ndagijimana-sebastien-7016a0154" class="socialicon"><img src="images/linkdin.png" alt="" width="100%"></a>
+                    <a href="https://wa.link/0caw88" class="socialicon"><img src="images/tsapp.png" alt="" width="100%"></a>
+                    <a href="" class="socialicon"><img src="images//skype.png" alt="" width="100%"></a>
                 </div>
             </div>
             <div class="navFooter">
@@ -115,10 +114,94 @@
         </div>
     </div>
     <section class="mainDashboard">
-        <aside>dashboard navigation</aside>
-        <main>main section of the dashboard </main>
+        <aside>
+            <h3>Dashboard</h3>
+            <hr/>
+            <a class="links" onclick="document.getElementById('allModal').classList.toggle('disNone')">All Posts</a>
+            <a class="links" onclick="document.getElementById('createModal').classList.toggle('disNone')">Create</a>
+        </aside>
+        <main class="">
+            <div class="modalHeader">
+                <h3>All Articles</h3>
+                <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
+            </div>
+            <div class="allArt">
+                <div class="oneArt">
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                    <footer>
+                        <a href="" class="artEdit">Edit</a>
+                        <a href="" class="artDel">Delete</a>
+                    </footer>
+                </div>
+                <div class="oneArt">
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                    <footer>
+                        <a href="" class="artEdit">Edit</a>
+                        <a href="" class="artDel">Delete</a>
+                    </footer>
+                </div>
+                <div class="oneArt">
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                    <footer>
+                        <a href="" class="artEdit">Edit</a>
+                        <a href="" class="artDel">Delete</a>
+                    </footer>
+                </div>
+                <div class="oneArt">
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                    <footer>
+                        <a href="" class="artEdit">Edit</a>
+                        <a href="" class="artDel">Delete</a>
+                    </footer>
+                </div>
+                <div class="oneArt">
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                    <footer>
+                        <a href="" class="artEdit">Edit</a>
+                        <a href="" class="artDel">Delete</a>
+                    </footer>
+                </div>
+            </div>
+        </main>
     </section>
-    
+    <!-- <div class="Modal disNone" id="allModal">
+        <div class="allArt">
+            <div class="oneArt">
+                <h3>Title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
+                <footer>
+                    <a href="" class="artEdit">Edit</a>
+                    <a href="" class="artDel">Delete</a>
+                </footer>
+            </div>
+        </div>
+    </div> -->
+    <div class="Modal disNone" id="createModal">
+        <div class="modalHeader">
+            <p>Add an Articles</p>
+            <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
+        </div>
+        <div class="CreatArt">
+            <form action="" id="createF">
+                <div class="formGroup">
+                    <label for="">Title</label>
+                    <input type="text" name="" id="artTitle" placeholder="Add Title">
+                </div>
+                <div class="formGroup">
+                    <label for="">body</label>
+                    <textarea name="" id="artBody" cols="30" rows="10">
+                    </textarea>
+                </div>
+                <button type="submit" class="subButton">Save Article</button>
+            </form>
+        </div>
+    </div>
+    <div class="editModal"></div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
     
@@ -127,5 +210,39 @@
         <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
         <script src="../../js/firebase.js"></script>
         <!-- <script src="../../js/main.js"></script> -->
+
+    <script>
+        let createF = document.querySelector('#createF');
+        createF.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let Mytitle = document.querySelector('#artTitle').value
+            let Mybody = document.querySelector('#artBody').value
+
+            if(Mytitle == "" || Mybody ==""){
+                alert("all fields are needed");
+            }else{
+                saveArticle(Mytitle, Mybody);
+            }
+        })
+        function saveArticle(Mytitle,Mybody){
+            var artRef = firebase.database().ref('articles/');
+            artRef.push({
+               id: '1',
+               title: Mytitle,
+               body: Mybody
+            })
+        }
+        (function allArticles(){
+            var artRef = firebase.database().ref('articles/');
+            var allARt = document.querySelector('.allArt');
+
+            artRef.on("value", function(snapshot) {
+                console.log(snapshot.val());
+            }, function (error) {
+                console.log("Error: " + error.code);
+             });
+        })()
+
+    </script>
 </body>
 </html>

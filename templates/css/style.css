@@ -32,7 +32,7 @@ ul{
 .rotate-45{
     transform:  rotate(-45deg);
 }
-#signin{
+.signin{
     cursor: pointer;
 }
 .loginModal{
@@ -63,40 +63,52 @@ ul{
     flex-direction: column;
 }
 .signInInputs{
-    margin: 4px 0px;
+    margin: 5px 0px;
     border: 0.5px solid #fafafa;
-    padding: 2px 4px;
+    padding: 10px 4px;
     width: 100%;
+    font-size: 14px;
 }
 #remForgBox{
     display: flex;
-    font-size: 10px;
-    margin-bottom: 10px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 #rememberB{
     display: flex;
     align-content: flex-start;
-    width: 60%;
+    width: 50%;
 }
 #rememberB input{
-    margin-left: -94px;
+    margin-left: -84px;
+    cursor: pointer;
 }
 #rememberB span{
     margin: auto 0px;
-    margin-left: -84px;
+    margin-left: -80px;
 }
 #forgotB{
-    width: 30%;
+    width: 40%;
     margin: auto 0px;
 }
 #signInB{
     margin: 4px 0px;
     border: 0.5px solid #fafafa;
-    padding: 2px 4px;
+    padding: 10px 4px;
+    font-size: 18px;
+    cursor: pointer;
 }
 #signInB:hover{
     color: greenyellow;
     border-color: greenyellow;
+}
+#registerLink{
+    font-size: 12px;
+    cursor: pointer;
+}
+#registerLink:hover{
+    color: greenyellow;
 }
 .topMost{
     height: 100vh;
