@@ -88,7 +88,7 @@
   }
 
 /* ------------------------------------------------------------------------ article scripts --------------------------------------------------------------- */
-  // saving article
+  // saving article and edit article
 
   let createF = document.querySelector('#createF');
   if (createF != null) {
@@ -110,6 +110,7 @@
         body: body
       })
     }
+
   }
 
   // retrieve all articles at once
@@ -187,6 +188,13 @@
       let tabPreset = 'editTab'
       window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html?id="+id+"&tabPreset="+tabPreset;
     })
+    pubB.addEventListener('click',(e)=>{
+      e.stopPropagation
+      let id = e.target.getAttribute('data-id')
+      db.collection('articles').doc(id).update({
+        published: false
+      }).then(location.reload());
+    })
     blogTitle.addEventListener('click',(e)=>{
       e.stopPropagation
       let id = e.target.getAttribute('data-id')
@@ -208,6 +216,7 @@ if (blogs != null) {
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let urlId = urlParams.get('id')
+let tabP = urlParams.get('tabPreset')
 if( urlId != null){
   
     db.collection('articles').doc(urlId).get().then((doc)=>{
@@ -229,4 +238,55 @@ function renderBlog(doc) {
 
   singleBlogSection.appendChild(blogTitle)
   singleBlogSection.appendChild(blogBody)
+}
+
+
+// edit a blog
+
+if (urlId != null && tabP != null) {
+  db.collection('articles').doc(urlId).get().then((doc)=>{
+    editBlog(doc)
+    console.log(doc)
+  })
+}
+
+function editBlog(doc) {
+  let editTitle = document.querySelector('#artTitleE')
+  let editBody = document.querySelector('#artBodyE')
+  
+  editTitle.value = doc.data().title
+  editBody.value = doc.data().body
+  displayTab(tabP)
+}
+
+
+// update blog
+
+// function updateBlog(title,blog) {
+  
+// }
+
+let editForm = document.querySelector('#editForm');
+
+if (editForm != null) {
+  if (urlId != null) {
+    editForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      let Mytitle = document.querySelector('#artTitleE').value
+      let Mybody = document.querySelector('#artBodyE').value
+    
+      if(Mytitle == "" || Mybody ==""){
+          alert("all fields are needed");
+      }else{
+          editArticle(Mytitle,Mybody,urlId)
+          fireSuccess()
+      }
+    })
+  }
+}
+function editArticle(title,body,urlId){
+db.collection('articles').doc(urlId).update({
+  title : title,
+  body: body
+})
 }
