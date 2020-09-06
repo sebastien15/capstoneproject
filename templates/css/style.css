@@ -20,6 +20,15 @@ ul{
 .disFlex{
     display: flex !important;
 }
+.successAlert{
+    display: none;
+    width: 100%;
+    padding: 10px;
+}
+.successAlert span{
+    cursor: pointer;
+    margin-left: 80%;
+}
 #unameErrorBox{
     margin: 4px 0px !important;
 }
@@ -583,6 +592,37 @@ ul{
     flex-wrap: wrap;
     max-width: 100%;
     margin-top: 40px;
+}
+.blogDesc{
+    margin-bottom: 20px;
+}
+.actionB{
+    display: flex;
+    font-size: 14px;
+}
+.editB{
+    text-align:center;
+    padding: 4px;
+    width: 30%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.603);
+    margin-right: 3%;
+}
+.pubB{
+    text-align:center;
+    padding: 4px;
+    width: 30%;
+    cursor: pointer;
+    background-color: green;
+    margin-right: 3%;
+}
+.delB{
+    text-align:center;
+    padding: 4px;
+    width: 30%;
+    cursor: pointer;
+    background-color: red;
+    
 }
 .singleBlog{
     width: 32%;

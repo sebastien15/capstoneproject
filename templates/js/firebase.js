@@ -58,11 +58,13 @@
 
   }
 
-  db.collection('contacts').get().then((snapshot)=>{
-    snapshot.docs.forEach(doc =>{
-        renderContacts(doc)
+  if (allcontacts != null) {
+    db.collection('contacts').get().then((snapshot)=>{
+      snapshot.docs.forEach(doc =>{
+          renderContacts(doc)
+      })
     })
-  })
+  }
 
 
   // saving contac
@@ -88,28 +90,101 @@
 /* ------------------------------------------------------------------------ article scripts --------------------------------------------------------------- */
   // saving article
 
-
   let createF = document.querySelector('#createF');
-  createF.addEventListener('submit',(e)=>{
-      e.preventDefault();
-      let Mytitle = document.querySelector('#artTitle').value
-      let Mybody = document.querySelector('#artBody').value
-
-      if(Mytitle == "" || Mybody ==""){
-          alert("all fields are needed");
-      }else{
-          addArticle(Mytitle,Mybody)
-          fireSuccess()
-      }
-  })
-  function addArticle(title,body){
-    db.collection('articles').add({
-      title : title,
-      body: body
+  if (createF != null) {
+    createF.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        let Mytitle = document.querySelector('#artTitle').value
+        let Mybody = document.querySelector('#artBody').value
+  
+        if(Mytitle == "" || Mybody ==""){
+            alert("all fields are needed");
+        }else{
+            addArticle(Mytitle,Mybody)
+            fireSuccess()
+        }
     })
+    function addArticle(title,body){
+      db.collection('articles').add({
+        title : title,
+        body: body
+      })
+    }
   }
-
 
   // retrieve all articles at once
 
-  
+
+  let blogs = document.querySelector('.blogs');
+
+  function renderBlogs(doc) {
+    let blog = document.createElement('div')
+    let blogImg = document.createElement('img')
+    let blogTitle = document.createElement('h6')
+    let blogDesc = document.createElement('div')
+    let blogLink = document.createElement('div')
+    let blogAuthorSpan = document.createElement('span')
+    let blogDateSpan = document.createElement('span')
+    let blogHoverSpan = document.createElement('span')
+    let blogHoverA = document.createElement('a')
+    let actions    = document.createElement('div')
+    let editB = document.createElement('a')
+    let pubB = document.createElement('a')
+    let delB = document.createElement('a')
+
+    editB.setAttribute('class','editB')
+    pubB.setAttribute('class','pubB')
+    delB.setAttribute('class','delB')
+    actions.setAttribute('class','actionB')
+
+    editB.textContent="Edit"
+    pubB.textContent="Un publish"
+    delB.textContent="Delete"
+
+    blog.setAttribute('class','singleBlog')
+    blogImg.setAttribute('src','../images/port/1.png')
+    blogAuthorSpan.setAttribute('id','blogauthor')
+    blogDateSpan.setAttribute('id','blogdatepublished')
+    blogLink.setAttribute('class','hoverableLink')
+    blogHoverA.setAttribute('href','blogSingle.html')
+    blogDesc.setAttribute('class','blogDesc')
+    editB.setAttribute('data-id',doc.id)
+    pubB.setAttribute('data-id',doc.id)
+    delB.setAttribute('data-id',doc.id)
+
+    blogHoverA.textContent = "View More";
+    blogHoverSpan.appendChild(blogHoverA)
+    blogLink.appendChild(blogHoverSpan)
+
+    actions.appendChild(editB)
+    actions.appendChild(pubB)
+    actions.appendChild(delB)
+
+    blogAuthorSpan.textContent = "Author: " + doc.data().author
+    blogDateSpan.textContent = doc.data().dateAdded;
+    blogDesc.appendChild(blogAuthorSpan)
+    blogDesc.appendChild(blogAuthorSpan)
+
+    blogTitle.textContent = doc.data().title
+
+    blog.appendChild(blogImg)
+    blog.appendChild(blogTitle)
+    blog.appendChild(blogDesc)
+    blog.appendChild(blogLink)
+    blog.appendChild(actions)
+    blogs.appendChild(blog)
+
+    delB.addEventListener('click',(e)=>{
+      e.stopPropagation
+      let id = e.target.getAttribute('data-id')
+      db.collection('articles').doc(id).delete().then(fireSuccess());
+    })
+  }
+if (blogs != null) {
+  db.collection('articles').get().then((snapshot)=>{
+    snapshot.docs.forEach(doc =>{
+        renderBlogs(doc)
+    })
+  })
+}
+
