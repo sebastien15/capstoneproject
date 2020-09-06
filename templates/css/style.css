@@ -325,7 +325,6 @@ ul{
     animation: scaleHover 1s 1 0s ease-in forwards;
 }
 
-
 /* client testmonials */
 
 
@@ -630,12 +629,14 @@ ul{
     margin-bottom: 10px;
     position: relative;
 }
-.singleBlog h6{
+.singleBlog a{
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
 }
 .singleBlog div{
     display: flex; 
@@ -653,6 +654,7 @@ ul{
     font-size: 10px;
     line-height: 12px;
     text-transform: uppercase;
+    margin-top: 20px;
 }
 .hoverableLink{
     min-height: 60%;
@@ -721,6 +723,75 @@ ul{
 .singleTag:hover{
     color: lawngreen;
 }
+
+
+/*edit modal starts*/
+
+.editModal{
+    width: 80vw;
+    position: absolute;
+    top: 20vh;
+    left: 20vh;
+    border: 0.5px solid white;
+    padding: 2%;
+    display: none;
+}
+.editHeader{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.editHeader p{
+    width: 90%;
+}
+.editHeader span{
+    cursor: pointer;
+    width: 10%;
+}
+#editForm{
+    padding: 10px;
+}
+#editForm{
+    display: flex;
+    flex-direction: column;
+}
+.formGroupE{
+    display: flex;
+    flex-direction: column;
+}
+.formGroupE label{
+    margin-bottom: 10px;
+}
+#artTitle{
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 0.5px solid white;
+}
+#artBody{
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 5px;
+    border: 0.5px solid white;
+}
+.subButtonE{
+    padding: 10px;
+    font-size: 12px;
+    border: 0.5px solid white;
+    cursor: pointer;
+}
+.subButtonE:hover{
+    color: greenyellow;
+    border: 0.5px solid greenyellow;
+}
+/*edit modal ends*/
+
+
+
+
 
 /* phone view */
 @media screen and (max-width: 768px) {

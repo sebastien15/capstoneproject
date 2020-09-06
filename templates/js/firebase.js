@@ -120,7 +120,7 @@
   function renderBlogs(doc) {
     let blog = document.createElement('div')
     let blogImg = document.createElement('img')
-    let blogTitle = document.createElement('h6')
+    let blogTitle = document.createElement('a')
     let blogDesc = document.createElement('div')
     let blogLink = document.createElement('div')
     let blogAuthorSpan = document.createElement('span')
@@ -151,6 +151,7 @@
     editB.setAttribute('data-id',doc.id)
     pubB.setAttribute('data-id',doc.id)
     delB.setAttribute('data-id',doc.id)
+    blogTitle.setAttribute('data-id',doc.id)
 
     blogHoverA.textContent = "View More";
     blogHoverSpan.appendChild(blogHoverA)
@@ -179,6 +180,18 @@
       let id = e.target.getAttribute('data-id')
       db.collection('articles').doc(id).delete().then(fireSuccess());
     })
+
+    editB.addEventListener('click',(e)=>{
+      e.stopPropagation
+      let id = e.target.getAttribute('data-id')
+      let tabPreset = 'editTab'
+      window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html?id="+id+"&tabPreset="+tabPreset;
+    })
+    blogTitle.addEventListener('click',(e)=>{
+      e.stopPropagation
+      let id = e.target.getAttribute('data-id')
+      window.location.href = "http://127.0.0.1:5500/pages/blogSingle.html?id="+id;
+    })
   }
 if (blogs != null) {
   db.collection('articles').get().then((snapshot)=>{
@@ -188,3 +201,32 @@ if (blogs != null) {
   })
 }
 
+
+//retrieve one blog
+
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let urlId = urlParams.get('id')
+if( urlId != null){
+  
+    db.collection('articles').doc(urlId).get().then((doc)=>{
+      if (singleBlogSection != null) {
+        renderBlog(doc)
+      }
+    })
+}
+let singleBlogSection = document.querySelector('.blogsingle');
+
+function renderBlog(doc) {
+  console.log(doc.data().title)
+
+  let blogTitle = document.createElement('h2');
+  let blogBody = document.createElement('div');
+
+  blogTitle.textContent = doc.data().title
+  blogBody.textContent = doc.data().body
+
+  singleBlogSection.appendChild(blogTitle)
+  singleBlogSection.appendChild(blogBody)
+}
