@@ -216,15 +216,30 @@
                     </form>
                 </div>
             </div>
+            <div class="tab editTab">
+                <header class="editHeader">
+                    <p>Edit Article</p>
+                    <span onclick="this.parentElement.parentElement.style.display='none'">X</span>
+                </header>
+                <form action="" id="editForm">
+                    <div class="formGroupE">
+                        <label for="">Title</label>
+                        <input type="text" name="" id="artTitleE" placeholder="Add Title">
+                    </div>
+                    <div class="formGroupE">
+                        <label for="">body</label>
+                        <textarea name="" id="artBodyE" cols="30" rows="10"></textarea>
+                    </div>
+                    <button type="submit" class="subButtonE">Save Article</button>
+                </form>
+            </div>
         </main>
-    </section>
-    <div class="editModal"></div>
-    
+    </section>    
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script> 
 
+    <script src="../../js/admin.js"></script>
         <script src="../../js/firebase.js"></script>
-        <script src="../../js/admin.js"></script>
 </body>
 </html>
