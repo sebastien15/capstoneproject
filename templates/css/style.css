@@ -20,6 +20,15 @@ ul{
 .disFlex{
     display: flex !important;
 }
+.successAlert{
+    display: none;
+    width: 100%;
+    padding: 10px;
+}
+.successAlert span{
+    cursor: pointer;
+    margin-left: 80%;
+}
 #unameErrorBox{
     margin: 4px 0px !important;
 }
@@ -316,7 +325,6 @@ ul{
     animation: scaleHover 1s 1 0s ease-in forwards;
 }
 
-
 /* client testmonials */
 
 
@@ -522,6 +530,20 @@ ul{
 #email{
     text-transform: none;
 }
+.successBox{
+    border: solid rgba(252, 7, 7, 0.568);
+    color: rgba(252, 247, 247, 0.945);
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-size: 10px;
+    display: none;
+    align-content: space-between;
+    min-width: 80%;
+    margin-bottom: 5px;
+}
+.successBox p, .successBox span{
+    background-color: rgba(252, 7, 7, 0)
+}
 .errorBox{
     border: solid rgba(252, 7, 7, 0.568);
     color: rgba(252, 247, 247, 0.945);
@@ -570,18 +592,51 @@ ul{
     max-width: 100%;
     margin-top: 40px;
 }
+.blogDesc{
+    margin-bottom: 20px;
+}
+.actionB{
+    display: flex;
+    font-size: 14px;
+}
+.editB{
+    text-align:center;
+    padding: 4px;
+    width: 30%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.603);
+    margin-right: 3%;
+}
+.pubB{
+    text-align:center;
+    padding: 4px;
+    width: 30%;
+    cursor: pointer;
+    background-color: green;
+    margin-right: 3%;
+}
+.delB{
+    text-align:center;
+    padding: 4px;
+    width: 30%;
+    cursor: pointer;
+    background-color: red;
+    
+}
 .singleBlog{
     width: 32%;
     margin-right: 1%;
     margin-bottom: 10px;
     position: relative;
 }
-.singleBlog h6{
+.singleBlog a{
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
 }
 .singleBlog div{
     display: flex; 
@@ -599,6 +654,7 @@ ul{
     font-size: 10px;
     line-height: 12px;
     text-transform: uppercase;
+    margin-top: 20px;
 }
 .hoverableLink{
     min-height: 60%;
@@ -667,6 +723,75 @@ ul{
 .singleTag:hover{
     color: lawngreen;
 }
+
+
+/*edit modal starts*/
+
+.editModal{
+    width: 80vw;
+    position: absolute;
+    top: 20vh;
+    left: 20vh;
+    border: 0.5px solid white;
+    padding: 2%;
+    display: none;
+}
+.editHeader{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.editHeader p{
+    width: 90%;
+}
+.editHeader span{
+    cursor: pointer;
+    width: 10%;
+}
+#editForm{
+    padding: 10px;
+}
+#editForm{
+    display: flex;
+    flex-direction: column;
+}
+.formGroupE{
+    display: flex;
+    flex-direction: column;
+}
+.formGroupE label{
+    margin-bottom: 10px;
+}
+#artTitle{
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 0.5px solid white;
+}
+#artBody{
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 5px;
+    border: 0.5px solid white;
+}
+.subButtonE{
+    padding: 10px;
+    font-size: 12px;
+    border: 0.5px solid white;
+    cursor: pointer;
+}
+.subButtonE:hover{
+    color: greenyellow;
+    border: 0.5px solid greenyellow;
+}
+/*edit modal ends*/
+
+
+
+
 
 /* phone view */
 @media screen and (max-width: 768px) {

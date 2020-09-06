@@ -15,10 +15,9 @@
             <a href="">Sebastien</a>
         </div>
         <div class="navlinksBox">
-            <div><a href="../index.html">Home</a></div>
-            <div><a href="#projects">Projects</a></div>
-            <div><a href="./blog.html">Blog</a></div>
-            <div><a href="./contact.html">Contact me</a></div>
+            <div><a href="../../index.html">Home</a></div>
+            <div><a href="../blog.html">Blog</a></div>
+            <div><a href="../contact.html">Contact me</a></div>
             <div><a class="signin">Sign in</a></div>
         </div>
         <div class="navlinksForPhone">
@@ -117,15 +116,17 @@
         <aside>
             <h3>Dashboard</h3>
             <hr/>
-            <a class="links" onclick="displayTab('mainTab')">All Posts</a>
-            <a class="links" onclick="document.getElementById('createModal').classList.toggle('disNone')">Create</a>
+            <!-- <a class="links" onclick="displayTab('mainTab')">All Posts</a> -->
+            <a class="links" href="../blog.html">All Posts</a>
+            <a class="links" onclick="displayTab('createTab')">Create Article</a>
             <a class="links" onclick="displayTab('contactTab')">Contacts</a>
+            <a class="links" onclick="displayTab('reviewTab')">Reviews</a>
+            <a class="links" onclick="displayTab('portTab')">Portifolio</a>
         </aside>
         <main class="">
             <div class="tab mainTab">
                 <div class="modalHeader">
                     <h3>All Articles</h3>
-                    <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
                 </div>
                 <div class="allArt">
                     <div class="oneArt">
@@ -171,42 +172,52 @@
                 </div>
             </div>
             <div class="tab contactTab">
-                hello
+                <div class="modalHeader">
+                    <h3>All Messages</h3>
+                </div>
+                <div class="allArt allContacts">
+                </div>
+            </div>
+            <div class="tab reviewTab">
+                <div class="modalHeader">
+                    <h3>All Review</h3>
+                </div>
+                <div class="allArt allContacts">
+                    
+                </div>
+            </div>
+            <div class="tab portTab">
+                <div class="modalHeader">
+                    <h3>All Portifolios</h3>
+                </div>
+                <div class="allArt allContacts">
+                </div>
+            </div>
+            <div class="tab createTab">
+                <div class="modalHeader">
+                    <h3>Add an Articles</h3>
+                </div>
+                <div class="successAlert">
+                    <p>Article added successfully</p>
+                    <span onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <div class="CreatArt">
+                    <form action="" id="createF">
+                        <div class="formGroup">
+                            <label for="">Title</label>
+                            <input type="text" name="" id="artTitle" placeholder="Add Title">
+                        </div>
+                        <div class="formGroup">
+                            <label for="">body</label>
+                            <textarea name="" id="artBody" cols="30" rows="10">
+                            </textarea>
+                        </div>
+                        <button type="submit" class="subButton">Save Article</button>
+                    </form>
+                </div>
             </div>
         </main>
     </section>
-    <!-- <div class="Modal disNone" id="allModal">
-        <div class="allArt">
-            <div class="oneArt">
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laboriosam eum optio quaerat? Dignissimos cupiditate qui aliquam sapiente doloribus, ducimus explicabo, debitis recusandae iure dolore tenetur sit placeat velit quis.</p>
-                <footer>
-                    <a href="" class="artEdit">Edit</a>
-                    <a href="" class="artDel">Delete</a>
-                </footer>
-            </div>
-        </div>
-    </div> -->
-    <div class="Modal disNone" id="createModal">
-        <div class="modalHeader">
-            <p>Add an Articles</p>
-            <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
-        </div>
-        <div class="CreatArt">
-            <form action="" id="createF">
-                <div class="formGroup">
-                    <label for="">Title</label>
-                    <input type="text" name="" id="artTitle" placeholder="Add Title">
-                </div>
-                <div class="formGroup">
-                    <label for="">body</label>
-                    <textarea name="" id="artBody" cols="30" rows="10">
-                    </textarea>
-                </div>
-                <button type="submit" class="subButton">Save Article</button>
-            </form>
-        </div>
-    </div>
     <div class="editModal"></div>
     
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
@@ -214,23 +225,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script> 
 
         <script src="../../js/firebase.js"></script>
-        <!-- <script src="../../js/main.js"></script> -->
-
-    <script>
-        let createF = document.querySelector('#createF');
-        createF.addEventListener('submit',(e)=>{
-            e.preventDefault();
-            let Mytitle = document.querySelector('#artTitle').value
-            let Mybody = document.querySelector('#artBody').value
-
-            if(Mytitle == "" || Mybody ==""){
-                alert("all fields are needed");
-            }else{
-                // saveArticle(Mytitle, Mybody);
-            }
-        })
-
-
-    </script>
+        <script src="../../js/admin.js"></script>
 </body>
 </html>
