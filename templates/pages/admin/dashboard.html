@@ -118,8 +118,10 @@
             <h3>Dashboard</h3>
             <hr/>
             <a class="links" onclick="displayTab('mainTab')">All Posts</a>
-            <a class="links" onclick="document.getElementById('createModal').classList.toggle('disNone')">Create</a>
+            <a class="links" onclick="displayTab('createTab')">Create Article</a>
             <a class="links" onclick="displayTab('contactTab')">Contacts</a>
+            <a class="links" onclick="displayTab('reviewTab')">Reviews</a>
+            <a class="links" onclick="displayTab('portTab')">Portifolio</a>
         </aside>
         <main class="">
             <div class="tab mainTab">
@@ -176,32 +178,46 @@
                 <div class="allArt allContacts">
                 </div>
             </div>
+            <div class="tab reviewTab">
+                <div class="modalHeader">
+                    <h3>All Review</h3>
+                </div>
+                <div class="allArt allContacts">
+                    
+                </div>
+            </div>
+            <div class="tab portTab">
+                <div class="modalHeader">
+                    <h3>All Portifolios</h3>
+                </div>
+                <div class="allArt allContacts">
+                </div>
+            </div>
+            <div class="tab createTab">
+                <div class="modalHeader">
+                    <h3>Add an Articles</h3>
+                </div>
+                <div class="successAlert">
+                    <p>Article added successfully</p>
+                    <span onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <div class="CreatArt">
+                    <form action="" id="createF">
+                        <div class="formGroup">
+                            <label for="">Title</label>
+                            <input type="text" name="" id="artTitle" placeholder="Add Title">
+                        </div>
+                        <div class="formGroup">
+                            <label for="">body</label>
+                            <textarea name="" id="artBody" cols="30" rows="10">
+                            </textarea>
+                        </div>
+                        <button type="submit" class="subButton">Save Article</button>
+                    </form>
+                </div>
+            </div>
         </main>
     </section>
-    <div class="Modal disNone" id="createModal">
-        <div class="modalHeader">
-            <p>Add an Articles</p>
-            <span onclick="this.parentNode.parentNode.classList.toggle('disNone')">X</span>
-        </div>
-        <div class="successAlert">
-            <p>Contact Deleted successfully</p>
-            <span onclick="this.parentNode.style.display='none'">X</span>
-        </div>
-        <div class="CreatArt">
-            <form action="" id="createF">
-                <div class="formGroup">
-                    <label for="">Title</label>
-                    <input type="text" name="" id="artTitle" placeholder="Add Title">
-                </div>
-                <div class="formGroup">
-                    <label for="">body</label>
-                    <textarea name="" id="artBody" cols="30" rows="10">
-                    </textarea>
-                </div>
-                <button type="submit" class="subButton">Save Article</button>
-            </form>
-        </div>
-    </div>
     <div class="editModal"></div>
     
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
@@ -210,20 +226,5 @@
 
         <script src="../../js/firebase.js"></script>
         <script src="../../js/admin.js"></script>
-
-    <script>
-        let createF = document.querySelector('#createF');
-        createF.addEventListener('submit',(e)=>{
-            e.preventDefault();
-            let Mytitle = document.querySelector('#artTitle').value
-            let Mybody = document.querySelector('#artBody').value
-
-            if(Mytitle == "" || Mybody ==""){
-                alert("all fields are needed");
-            }else{
-                // saveArticle(Mytitle, Mybody);
-            }
-        })
-    </script>
 </body>
 </html>

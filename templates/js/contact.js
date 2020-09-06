@@ -39,5 +39,6 @@ myform.addEventListener('submit',(e)=>{
         document.querySelector('#lastName').value =""
         document.querySelector('#email').value =""
         document.querySelector('#message').value =""
+        document.querySelector('.successBox').style.display= 'flex'
     }    
 })

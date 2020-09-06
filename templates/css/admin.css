@@ -21,17 +21,14 @@
     display: flex;
     flex-wrap: wrap;
 }
-.Modal{
-    position: absolute;
-    top: 20vh;
-    left: 10vw;
-    width: 80vw;
+.createTab{
+    width: 80%;
     padding: 10px;
-    border: 1px solid white;
 }
 .modalHeader{
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 .modalHeader p{
     width: 90%;
@@ -114,12 +111,13 @@
     margin-bottom: 10px;
 }
 .formGroup label{
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 .formGroup input{
-    font-size: 12px;
-    padding: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 15px;
     border: 0.5px solid white;
 }
 .formGroup textarea{
@@ -131,10 +129,15 @@
     width: 80%;
     margin-left: 10%;
     margin-top: 10px;
-    padding: 5px;
+    padding: 10px;
+    font-size: 14px;
     cursor: pointer;
     border: 1px solid white;
 } 
+.subButton:hover{
+    color: greenyellow;
+    border: 1px solid greenyellow;
+}
 .successAlert{
     display: none;
     width: 100%;
@@ -149,4 +152,3 @@
 .contactTa {
     display: none;
 }
-

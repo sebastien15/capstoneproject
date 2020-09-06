@@ -522,6 +522,20 @@ ul{
 #email{
     text-transform: none;
 }
+.successBox{
+    border: solid rgba(252, 7, 7, 0.568);
+    color: rgba(252, 247, 247, 0.945);
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-size: 10px;
+    display: none;
+    align-content: space-between;
+    min-width: 80%;
+    margin-bottom: 5px;
+}
+.successBox p, .successBox span{
+    background-color: rgba(252, 7, 7, 0)
+}
 .errorBox{
     border: solid rgba(252, 7, 7, 0.568);
     color: rgba(252, 247, 247, 0.945);

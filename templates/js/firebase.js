@@ -74,6 +74,7 @@
       email: email,
       message: message
     })
+    
   }
 
   // success message
@@ -83,3 +84,32 @@
     successAlert.style.display = 'flex'
     successAlert.style.alignContent = 'space-between'
   }
+
+/* ------------------------------------------------------------------------ article scripts --------------------------------------------------------------- */
+  // saving article
+
+
+  let createF = document.querySelector('#createF');
+  createF.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      let Mytitle = document.querySelector('#artTitle').value
+      let Mybody = document.querySelector('#artBody').value
+
+      if(Mytitle == "" || Mybody ==""){
+          alert("all fields are needed");
+      }else{
+          addArticle(Mytitle,Mybody)
+          fireSuccess()
+      }
+  })
+  function addArticle(title,body){
+    db.collection('articles').add({
+      title : title,
+      body: body
+    })
+  }
+
+
+  // retrieve all articles at once
+
+  
