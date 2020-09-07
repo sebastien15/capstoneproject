@@ -1,3 +1,4 @@
+
 var tabPreset= 'mainTab';
 
 function displayTab(currentTab){
@@ -11,3 +12,15 @@ function displayTab(currentTab){
     }
 }
 displayTab()
+
+
+
+function showMap(long, lat) {
+    // <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOyqBpPNPu7yf7jtVXfiSYnY8zi_roJz4&callback=initMap"
+    // type="text/javascript"></script>
+    var latlon = lat + "," + long;
+
+    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyAOyqBpPNPu7yf7jtVXfiSYnY8zi_roJz4";
+  
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}

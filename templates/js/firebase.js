@@ -14,6 +14,76 @@
   firebase.analytics();
 
   const db = firebase.firestore();
+  const auth = firebase.auth();
+
+  // auth staus
+  auth.onAuthStateChanged(user=>{
+    let signinBtn = document.querySelectorAll('.signin');
+    if(user){
+      // location.reload()
+      signinBtn.forEach(btn=>{
+        btn.parentElement.style.display='none'
+      })
+      document.querySelector('.logout').parentElement.style.display= 'block'
+    }else{
+      // location.reload()     
+      document.querySelector('.logout').parentElement.style.display= 'none'
+      signinBtn.forEach(btn=>{
+        btn.parentElement.style.display='block'
+      })
+    }
+  })
+
+  /* authenicate user starts*/
+  
+  const signupform = document.querySelector('#RegisterForm')
+  const signinform = document.querySelector('#signInForm')
+  
+  if (signupform != null) {
+    signupform.addEventListener('submit',(e)=>{
+      e.preventDefault()
+
+      //get user info
+      const email = signupform['useremail'].value
+      const password = signupform['userpass'].value
+      //signup user
+
+      auth.createUserWithEmailAndPassword(email,password).then(cred=>{
+        console.log(cred.user)
+        signupform.parentNode.parentNode.style.display='none'
+        document.querySelector('.logout').style.display= 'block'
+        window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
+      })  
+    })
+
+    //sign out user
+
+    const logout = document.querySelector('.logout')
+    logout.addEventListener('click',(e)=>{
+      e.preventDefault();
+      auth.signOut().then(()=>{
+        document.querySelector('.logout').parentElement.style.display= 'none'
+        window.location.href = "http://127.0.0.1:5500/index.html";
+      })
+    })      
+    // login user
+
+    signinform.addEventListener('submit',(e)=>{
+      e.preventDefault()
+      const  logemail = signinform['uname'].value
+      const logpass = signinform['pass'].value
+
+      auth.signInWithEmailAndPassword(logemail,logpass).then(cred=>{
+        // console.log(cred)
+        signinform.parentNode.parentNode.style.display='none'
+        window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
+        document.querySelector('.logout').style.display= 'block'
+      })
+    })
+  }  
+  
+  
+  /* authenicate user ends*/
 
   const allcontacts = document.querySelector('.allContacts');
 
@@ -67,7 +137,7 @@
   }
 
 
-  // saving contac
+  // saving contact
 
   function saveContact(firstName,secondName,email,message) {
     db.collection('contacts').add({
@@ -173,28 +243,36 @@
     blog.appendChild(blogTitle)
     blog.appendChild(blogDesc)
     blog.appendChild(blogLink)
-    blog.appendChild(actions)
+    
+    auth.onAuthStateChanged(user=>{
+      if(user){
+        blog.appendChild(actions)
+        delB.addEventListener('click',(e)=>{
+          e.stopPropagation
+          let id = e.target.getAttribute('data-id')
+          db.collection('articles').doc(id).delete().then(fireSuccess());
+        })
+    
+        editB.addEventListener('click',(e)=>{
+          e.stopPropagation
+          let id = e.target.getAttribute('data-id')
+          let tabPreset = 'editTab'
+          window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html?id="+id+"&tabPreset="+tabPreset;
+        })
+        pubB.addEventListener('click',(e)=>{
+          e.stopPropagation
+          let id = e.target.getAttribute('data-id')
+          db.collection('articles').doc(id).update({
+            published: false
+          }).then(location.reload());
+        })
+      }else{
+      }
+    })
+
+    
     blogs.appendChild(blog)
-
-    delB.addEventListener('click',(e)=>{
-      e.stopPropagation
-      let id = e.target.getAttribute('data-id')
-      db.collection('articles').doc(id).delete().then(fireSuccess());
-    })
-
-    editB.addEventListener('click',(e)=>{
-      e.stopPropagation
-      let id = e.target.getAttribute('data-id')
-      let tabPreset = 'editTab'
-      window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html?id="+id+"&tabPreset="+tabPreset;
-    })
-    pubB.addEventListener('click',(e)=>{
-      e.stopPropagation
-      let id = e.target.getAttribute('data-id')
-      db.collection('articles').doc(id).update({
-        published: false
-      }).then(location.reload());
-    })
+    
     blogTitle.addEventListener('click',(e)=>{
       e.stopPropagation
       let id = e.target.getAttribute('data-id')
@@ -285,8 +363,50 @@ if (editForm != null) {
   }
 }
 function editArticle(title,body,urlId){
-db.collection('articles').doc(urlId).update({
-  title : title,
-  body: body
-})
+  db.collection('articles').doc(urlId).update({
+    title : title,
+    body: body
+  })
+}
+
+
+
+
+/* ----------------------------------------------- Retrieve detectors ----------------------------------------------------------------------- */
+let visitors= document.querySelector('.visitorBox')
+if (visitors != null) {
+  db.collection('visitors').get().then((snapshot)=>{
+    snapshot.docs.forEach(doc =>{
+        renderVisitors(doc)
+    })
+  })
+}
+
+function renderVisitors(doc) {
+  let singleV = document.createElement('div')
+  let longP = document.createElement('p')
+  let latP = document.createElement('p')
+  let body = document.createElement('div')
+  let footer = document.createElement('div')
+  let button = document.createElement('button')
+
+  body.setAttribute('class','body')
+  footer.setAttribute('class','footer')
+  singleV.setAttribute('class','visSingle')
+  button.setAttribute('data-long',doc.data().long)
+  button.setAttribute('data-lat',doc.data().lat)
+
+  longP.textContent = "Longitude: " + doc.data().long
+  latP.textContent = "Latitude: " + doc.data().lat
+  button.textContent= "locate"
+
+  body.appendChild(longP)
+  body.appendChild(latP)
+  footer.appendChild(button)
+  singleV.appendChild(body)
+  singleV.appendChild(footer)
+
+  visitors.appendChild(singleV)
+
+  button.addEventListener('click',showMap(doc.data().long,doc.data().lat))
 }

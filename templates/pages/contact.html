@@ -17,7 +17,8 @@
             <div><a href="#projects">Projects</a></div>
             <div><a href="blog.html">Blog</a></div>
             <div><a href="contact.html">Contact me</a></div>
-            <div><a id="signin">Sign in</a></div>
+            <div><a class="signin">Sign in</a></div>            
+            <div><a class="logout">Log out</a></div>
         </div>
         <div class="navlinksForPhone">
             <div class="navS1"></div>
@@ -43,7 +44,8 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact me</a></li>
-                    <div><a id="signin">Sign in</a></div>
+                    <div><a class="signin">Sign in</a></div>
+                    <div><a class="logout">Log out</a></div>
                 </ul>
             </div>
             <div class="navSocioIcons">
@@ -99,7 +101,7 @@
                     <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
                 </div>
                 <input type="password" class="signInInputs" id="pass" placeholder="password">
-                <div id="remForgBox">
+                <!-- <div id="remForgBox">
                     <div id="rememberB">
                         <input type="checkbox" name="" id="rem" class="signInInputs">
                         <span>Rember me</span>
@@ -107,7 +109,7 @@
                     <div id="forgotB">
                         <a href="">Forgot password?</a>
                     </div>
-                </div>
+                </div> -->
                 <button type="submit" id="signInB">Sign in</button>
             </form>
             <p id="registerLink">or Register</p>
@@ -222,6 +224,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
 
     <script src="../../js/firebase.js"></script>

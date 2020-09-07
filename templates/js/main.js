@@ -1,3 +1,4 @@
+
 let phoneNav = document.querySelector('.navlinksForPhone');
 let navlinksForPhoneBox = document.querySelector('.navlinksForPhoneBox');
 
@@ -47,31 +48,32 @@ phoneNav.addEventListener('click',()=>{
 
 // sign in form
 
-{
-    let signInForm = document.querySelector('#signInForm')
-    let unameErrorBox = document.querySelector('#unameErrorBox')
-    let passErrorBox = document.querySelector('#passErrorBox')
+// {
+//     let signInForm = document.querySelector('#signInForm')
+//     let unameErrorBox = document.querySelector('#unameErrorBox')
+//     let passErrorBox = document.querySelector('#passErrorBox')
     
-    signInForm.addEventListener('submit',(e)=>{
-        let myuname = document.querySelector('#uname').value
-        let mypass = document.querySelector('#pass').value
-        let rem = document.querySelector('#rem').value
-        e.preventDefault();
-        if (myuname !="" || pass !="") {
-            pushData(myuname,mypass)
-        }else{
-            unameErrorBox.classList.remove('disNone')
-            passErrorBox.classList.remove('disNone');
-        }
-    })
-}
-function pushData(myuname, mypass){
-    userRef.push({
-        uname: myuname,
-        pass: mypass
-    })
-    window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
-}
+//     signInForm.addEventListener('submit',(e)=>{
+//         let myuname = document.querySelector('#uname').value
+//         let mypass = document.querySelector('#pass').value
+//         let rem = document.querySelector('#rem').value
+//         e.preventDefault();
+//         if (myuname !="" || pass !="") {
+//             pushData(myuname,mypass)
+//         }else{
+//             unameErrorBox.classList.remove('disNone')
+//             passErrorBox.classList.remove('disNone');
+//         }
+//     })
+// }
+// function pushData(myuname, mypass){
+//     userRef.push({
+//         uname: myuname,
+//         pass: mypass
+//     })
+//     window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
+// }
+
 
 // geolocation scripts
 {
@@ -86,8 +88,20 @@ function pushData(myuname, mypass){
     }
 
     function userPosition(position) {
-        x.innerHTML = "Your Latitude is: " + position.coords.latitude +
-        "<br> Your Longitude is: " + position.coords.longitude;
+        // x.innerHTML = "Your Latitude is: " + position.coords.latitude +
+        // "<br> Your Longitude is: " + position.coords.longitude;
+        db.collection('visitors').add({
+            long: position.coords.longitude,
+            lat: position.coords.latitude
+        })
     }
     getLocation()
+
+
+    // let currentCookie
+
+    // window.addEventListener('load',()=>{
+    //     currentCookie = document.cookie
+    //     console.log(currentCookie)
+    // })
 }
