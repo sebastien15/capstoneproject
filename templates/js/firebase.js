@@ -296,18 +296,16 @@ const urlParams = new URLSearchParams(queryString);
 let urlId = urlParams.get('id')
 let tabP = urlParams.get('tabPreset')
 if( urlId != null){
-  
     db.collection('articles').doc(urlId).get().then((doc)=>{
       if (singleBlogSection != null) {
         renderBlog(doc)
       }
     })
+    document.querySelector("#blogid").value= urlId
 }
 let singleBlogSection = document.querySelector('.blogsingle');
 
 function renderBlog(doc) {
-  console.log(doc.data().title)
-
   let blogTitle = document.createElement('h2');
   let blogBody = document.createElement('div');
 
@@ -409,4 +407,57 @@ function renderVisitors(doc) {
   visitors.appendChild(singleV)
 
   button.addEventListener('click',showMap(doc.data().long,doc.data().lat))
+}
+
+
+
+/* --------------------------- comment section ----------------------------------------------------------------- */
+
+let commentForm = document.querySelector('#commentForm')
+let commentSec = document.querySelector('.commentSection')
+
+// retrieve all comments related to a post
+if (commentForm != null) {
+  var commentref = firebase.database().ref("comments");
+
+  commentref.on("value", function(snapshot) {
+    snapshot.forEach(doc=>{
+      let name = document.createElement('h3')
+      let comment = document.createElement('p')
+      let singleComment = document.createElement('div')
+      let hr = document.createElement('hr')
+      let br = document.createElement('br')
+
+      singleComment.setAttribute('class','singleComment')
+
+      name.textContent = doc.val().name
+      comment.textContent = doc.val().comment
+
+      singleComment.appendChild(name)
+      singleComment.appendChild(comment)
+      singleComment.appendChild(hr)
+      singleComment.appendChild(br)
+      commentSec.appendChild(singleComment)
+      // if(doc.val().blogid == urlId){
+      //   console.log(doc.val().blogid)
+      // }
+    });
+  }, function (error) {
+    console.log("Error: " + error.code);
+  });
+  commentForm.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let userName = document.querySelector('#commentName').value
+    let blogId = document.querySelector('#blogid').value
+    let comment = document.querySelector('#commentText').value
+    if (userName =="" || comment == "") {
+      console.log('please enter your name and comment')
+    }else{
+      commentref.push({
+        name: userName,
+        blogid:blogId,
+        comment: comment
+      })
+    }
+  })
 }

@@ -723,7 +723,38 @@ ul{
 .singleTag:hover{
     color: lawngreen;
 }
-
+.commentSection{
+    width: 80%;
+    margin-top: 100px;
+}
+.commentSection h5{
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+#commentForm {
+    display: flex;
+    flex-direction: column;
+}
+#commentName{
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    font-size: 14px
+}
+#commentText{
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    font-size: 14px
+}
+#commentSubBtn{
+    padding: 10px;
+    width: 40%;
+    margin-left: auto;
+    cursor: pointer;
+    border: 1px solid white;
+}
 /* phone view */
 @media screen and (max-width: 768px) {
 

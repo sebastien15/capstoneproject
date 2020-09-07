@@ -95,8 +95,9 @@ phoneNav.addEventListener('click',()=>{
             lat: position.coords.latitude
         })
     }
-    getLocation()
-
+    if (window.closed) {
+        getLocation()
+    }
 
     // let currentCookie
 

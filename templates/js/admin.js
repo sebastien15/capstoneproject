@@ -13,8 +13,6 @@ function displayTab(currentTab){
 }
 displayTab()
 
-
-
 function showMap(long, lat) {
     // <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOyqBpPNPu7yf7jtVXfiSYnY8zi_roJz4&callback=initMap"
     // type="text/javascript"></script>
@@ -24,3 +22,4 @@ function showMap(long, lat) {
   
     document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
 }
+
