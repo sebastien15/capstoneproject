@@ -16,18 +16,31 @@
   const db = firebase.firestore();
   const auth = firebase.auth();
 
+
+  const logout = document.querySelectorAll('.logout')
+  const dash = document.querySelectorAll('.dasboard')
+  const signinBtn = document.querySelectorAll('.signin');
   // auth staus
   auth.onAuthStateChanged(user=>{
-    let signinBtn = document.querySelectorAll('.signin');
     if(user){
       // location.reload()
       signinBtn.forEach(btn=>{
         btn.parentElement.style.display='none'
       })
-      document.querySelector('.logout').parentElement.style.display= 'block'
+      logout.forEach(btn=>{
+        btn.parentElement.style.display='block'
+      })
+      dash.forEach(btn=>{
+        btn.parentElement.style.display='block'
+      })
     }else{
       // location.reload()     
-      document.querySelector('.logout').parentElement.style.display= 'none'
+      logout.forEach(btn=>{
+        btn.parentElement.style.display='none'
+      })
+      dash.forEach(btn=>{
+        btn.parentElement.style.display='none'
+      })
       signinBtn.forEach(btn=>{
         btn.parentElement.style.display='block'
       })
@@ -46,26 +59,41 @@
       //get user info
       const email = signupform['useremail'].value
       const password = signupform['userpass'].value
+
+      if(email != "" || password != ""){
+        document.getElementById('#unameErrorBox').style.display='block';
+        document.getElementById('#passErrorBox').style.display='block';
+      }
       //signup user
 
       auth.createUserWithEmailAndPassword(email,password).then(cred=>{
-        console.log(cred.user)
+        // console.log(cred.user)
         signupform.parentNode.parentNode.style.display='none'
-        document.querySelector('.logout').style.display= 'block'
+        logout.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
+        dash.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
         window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
       })  
     })
 
     //sign out user
-
-    const logout = document.querySelector('.logout')
-    logout.addEventListener('click',(e)=>{
-      e.preventDefault();
-      auth.signOut().then(()=>{
-        document.querySelector('.logout').parentElement.style.display= 'none'
-        window.location.href = "http://127.0.0.1:5500/index.html";
-      })
-    })      
+    logout.forEach(elem=>{
+      elem.addEventListener('click',(e)=>{
+        e.preventDefault();
+        auth.signOut().then(()=>{
+          logout.forEach(btn=>{
+            btn.parentElement.style.display='none'
+          })
+          dash.forEach(btn=>{
+            btn.parentElement.style.display='none'
+          })
+          window.location.href = "http://127.0.0.1:5500/index.html";
+        })
+      })  
+    })    
     // login user
 
     signinform.addEventListener('submit',(e)=>{
@@ -73,11 +101,22 @@
       const  logemail = signinform['uname'].value
       const logpass = signinform['pass'].value
 
+      // validate 
+      if(email != "" || password != ""){
+        document.querySelector('.errorBox').style.display='block';
+        document.querySelector('.errorBox').style.display='block';
+      }
+
       auth.signInWithEmailAndPassword(logemail,logpass).then(cred=>{
         // console.log(cred)
         signinform.parentNode.parentNode.style.display='none'
         window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
-        document.querySelector('.logout').style.display= 'block'
+        logout.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
+        dash.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
       })
     })
   }  

@@ -59,7 +59,7 @@ phoneNav.addEventListener('click',()=>{
 //         let rem = document.querySelector('#rem').value
 //         e.preventDefault();
 //         if (myuname !="" || pass !="") {
-//             pushData(myuname,mypass)
+//             // pushData(myuname,mypass)
 //         }else{
 //             unameErrorBox.classList.remove('disNone')
 //             passErrorBox.classList.remove('disNone');

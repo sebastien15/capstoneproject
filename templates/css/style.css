@@ -1,3 +1,6 @@
+body{
+    padding: 0px;
+}
 *{
     /* background-color: #0e0202; */
     background-color: #000000;
@@ -83,7 +86,9 @@ ul{
 #loginLink:hover{
     color: greenyellow;
 }
-
+.logout{
+    cursor: pointer;
+}
 .loginModal{
     position: fixed;
     top: 30vh;
