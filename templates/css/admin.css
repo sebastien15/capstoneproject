@@ -1,3 +1,6 @@
+.logout{
+    cursor: pointer;
+}
 .mainDashboard{
     margin-top: 20vh;
     display: flex;
@@ -151,4 +154,34 @@
 }
 .contactTa {
     display: none;
+}
+
+/* visitors style */
+
+.visitorBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.visSingle{
+    width: 18%;
+    margin-right: 2%;
+    padding: 5px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.visSingle .body{
+    margin-bottom: 10px;
+}
+/* .visSingle .footer{
+    padding: 5px;
+} */
+.visSingle .footer button{
+    padding: 5px;
+    border: 0.5px solid rgb(218, 209, 209);
+    width: 100%;
+    cursor: pointer;
+}
+.visSingle .footer button:hover{
+    border: 0.5px solid greenyellow;
+    color: greenyellow;
 }

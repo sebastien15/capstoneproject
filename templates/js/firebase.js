@@ -14,6 +14,115 @@
   firebase.analytics();
 
   const db = firebase.firestore();
+  const auth = firebase.auth();
+
+
+  const logout = document.querySelectorAll('.logout')
+  const dash = document.querySelectorAll('.dasboard')
+  const signinBtn = document.querySelectorAll('.signin');
+  // auth staus
+  auth.onAuthStateChanged(user=>{
+    if(user){
+      // location.reload()
+      signinBtn.forEach(btn=>{
+        btn.parentElement.style.display='none'
+      })
+      logout.forEach(btn=>{
+        btn.parentElement.style.display='block'
+      })
+      dash.forEach(btn=>{
+        btn.parentElement.style.display='block'
+      })
+    }else{
+      // location.reload()     
+      logout.forEach(btn=>{
+        btn.parentElement.style.display='none'
+      })
+      dash.forEach(btn=>{
+        btn.parentElement.style.display='none'
+      })
+      signinBtn.forEach(btn=>{
+        btn.parentElement.style.display='block'
+      })
+    }
+  })
+
+  /* authenicate user starts*/
+  
+  const signupform = document.querySelector('#RegisterForm')
+  const signinform = document.querySelector('#signInForm')
+  
+  if (signupform != null) {
+    signupform.addEventListener('submit',(e)=>{
+      e.preventDefault()
+
+      //get user info
+      const email = signupform['useremail'].value
+      const password = signupform['userpass'].value
+
+      if(email != "" || password != ""){
+        document.getElementById('#unameErrorBox').style.display='block';
+        document.getElementById('#passErrorBox').style.display='block';
+      }
+      //signup user
+
+      auth.createUserWithEmailAndPassword(email,password).then(cred=>{
+        // console.log(cred.user)
+        signupform.parentNode.parentNode.style.display='none'
+        logout.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
+        dash.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
+        window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
+      })  
+    })
+
+    //sign out user
+    logout.forEach(elem=>{
+      elem.addEventListener('click',(e)=>{
+        e.preventDefault();
+        auth.signOut().then(()=>{
+          logout.forEach(btn=>{
+            btn.parentElement.style.display='none'
+          })
+          dash.forEach(btn=>{
+            btn.parentElement.style.display='none'
+          })
+          window.location.href = "http://127.0.0.1:5500/index.html";
+        })
+      })  
+    })    
+    // login user
+
+    signinform.addEventListener('submit',(e)=>{
+      e.preventDefault()
+      const  logemail = signinform['uname'].value
+      const logpass = signinform['pass'].value
+
+      // validate 
+      if(email != "" || password != ""){
+        document.querySelector('.errorBox').style.display='block';
+        document.querySelector('.errorBox').style.display='block';
+      }
+
+      auth.signInWithEmailAndPassword(logemail,logpass).then(cred=>{
+        // console.log(cred)
+        signinform.parentNode.parentNode.style.display='none'
+        window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
+        logout.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
+        dash.forEach(btn=>{
+          btn.parentElement.style.display='block'
+        })
+      })
+    })
+  }  
+  
+  
+  /* authenicate user ends*/
 
   const allcontacts = document.querySelector('.allContacts');
 
@@ -67,7 +176,7 @@
   }
 
 
-  // saving contac
+  // saving contact
 
   function saveContact(firstName,secondName,email,message) {
     db.collection('contacts').add({
@@ -173,28 +282,36 @@
     blog.appendChild(blogTitle)
     blog.appendChild(blogDesc)
     blog.appendChild(blogLink)
-    blog.appendChild(actions)
+    
+    auth.onAuthStateChanged(user=>{
+      if(user){
+        blog.appendChild(actions)
+        delB.addEventListener('click',(e)=>{
+          e.stopPropagation
+          let id = e.target.getAttribute('data-id')
+          db.collection('articles').doc(id).delete().then(fireSuccess());
+        })
+    
+        editB.addEventListener('click',(e)=>{
+          e.stopPropagation
+          let id = e.target.getAttribute('data-id')
+          let tabPreset = 'editTab'
+          window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html?id="+id+"&tabPreset="+tabPreset;
+        })
+        pubB.addEventListener('click',(e)=>{
+          e.stopPropagation
+          let id = e.target.getAttribute('data-id')
+          db.collection('articles').doc(id).update({
+            published: false
+          }).then(location.reload());
+        })
+      }else{
+      }
+    })
+
+    
     blogs.appendChild(blog)
-
-    delB.addEventListener('click',(e)=>{
-      e.stopPropagation
-      let id = e.target.getAttribute('data-id')
-      db.collection('articles').doc(id).delete().then(fireSuccess());
-    })
-
-    editB.addEventListener('click',(e)=>{
-      e.stopPropagation
-      let id = e.target.getAttribute('data-id')
-      let tabPreset = 'editTab'
-      window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html?id="+id+"&tabPreset="+tabPreset;
-    })
-    pubB.addEventListener('click',(e)=>{
-      e.stopPropagation
-      let id = e.target.getAttribute('data-id')
-      db.collection('articles').doc(id).update({
-        published: false
-      }).then(location.reload());
-    })
+    
     blogTitle.addEventListener('click',(e)=>{
       e.stopPropagation
       let id = e.target.getAttribute('data-id')
@@ -218,18 +335,16 @@ const urlParams = new URLSearchParams(queryString);
 let urlId = urlParams.get('id')
 let tabP = urlParams.get('tabPreset')
 if( urlId != null){
-  
     db.collection('articles').doc(urlId).get().then((doc)=>{
       if (singleBlogSection != null) {
         renderBlog(doc)
       }
     })
+    document.querySelector("#blogid").value= urlId
 }
 let singleBlogSection = document.querySelector('.blogsingle');
 
 function renderBlog(doc) {
-  console.log(doc.data().title)
-
   let blogTitle = document.createElement('h2');
   let blogBody = document.createElement('div');
 
@@ -285,8 +400,103 @@ if (editForm != null) {
   }
 }
 function editArticle(title,body,urlId){
-db.collection('articles').doc(urlId).update({
-  title : title,
-  body: body
-})
+  db.collection('articles').doc(urlId).update({
+    title : title,
+    body: body
+  })
+}
+
+
+
+
+/* ----------------------------------------------- Retrieve detectors ----------------------------------------------------------------------- */
+let visitors= document.querySelector('.visitorBox')
+if (visitors != null) {
+  db.collection('visitors').get().then((snapshot)=>{
+    snapshot.docs.forEach(doc =>{
+        renderVisitors(doc)
+    })
+  })
+}
+
+function renderVisitors(doc) {
+  let singleV = document.createElement('div')
+  let longP = document.createElement('p')
+  let latP = document.createElement('p')
+  let body = document.createElement('div')
+  let footer = document.createElement('div')
+  let button = document.createElement('button')
+
+  body.setAttribute('class','body')
+  footer.setAttribute('class','footer')
+  singleV.setAttribute('class','visSingle')
+  button.setAttribute('data-long',doc.data().long)
+  button.setAttribute('data-lat',doc.data().lat)
+
+  longP.textContent = "Longitude: " + doc.data().long
+  latP.textContent = "Latitude: " + doc.data().lat
+  button.textContent= "locate"
+
+  body.appendChild(longP)
+  body.appendChild(latP)
+  footer.appendChild(button)
+  singleV.appendChild(body)
+  singleV.appendChild(footer)
+
+  visitors.appendChild(singleV)
+
+  button.addEventListener('click',showMap(doc.data().long,doc.data().lat))
+}
+
+
+
+/* --------------------------- comment section ----------------------------------------------------------------- */
+
+let commentForm = document.querySelector('#commentForm')
+let commentSec = document.querySelector('.commentSection')
+
+// retrieve all comments related to a post
+if (commentForm != null) {
+  var commentref = firebase.database().ref("comments");
+
+  commentref.on("value", function(snapshot) {
+    snapshot.forEach(doc=>{
+      let name = document.createElement('h3')
+      let comment = document.createElement('p')
+      let singleComment = document.createElement('div')
+      let hr = document.createElement('hr')
+      let br = document.createElement('br')
+
+      singleComment.setAttribute('class','singleComment')
+
+      name.textContent = doc.val().name
+      comment.textContent = doc.val().comment
+
+      singleComment.appendChild(name)
+      singleComment.appendChild(comment)
+      singleComment.appendChild(hr)
+      singleComment.appendChild(br)
+      commentSec.appendChild(singleComment)
+      // if(doc.val().blogid == urlId){
+      //   console.log(doc.val().blogid)
+      // }
+    });
+  }, function (error) {
+    console.log("Error: " + error.code);
+  });
+  commentForm.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let userName = document.querySelector('#commentName').value
+    let blogId = document.querySelector('#blogid').value
+    let comment = document.querySelector('#commentText').value
+    if (userName =="" || comment == "") {
+      console.log('please enter your name and comment')
+    }else{
+      commentref.push({
+        name: userName,
+        blogid:blogId,
+        comment: comment
+      })
+    }
+  })
 }

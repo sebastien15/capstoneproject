@@ -18,6 +18,8 @@
             <div><a href="blog.html">Blog</a></div>
             <div><a href="contact.html">Contact me</a></div>
             <div><a id="signin">Sign in</a></div>
+            <div><a class="logout">Log out</a></div>
+            <div><a href="admin/dashboard.html" class="dashboard">Dashboard</a></div>
         </div>
         <div class="navlinksForPhone">
             <div class="navS1"></div>
@@ -44,6 +46,8 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact me</a></li>
                     <div><a id="signin">Sign in</a></div>
+                    <div><a class="logout">Log out</a></div>
+                    <div><a href="admin/dashboard.html" class="dashboard">Dashboard</a></div>
                 </ul>
             </div>
             <div class="navSocioIcons">
@@ -99,7 +103,7 @@
                     <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
                 </div>
                 <input type="password" class="signInInputs" id="pass" placeholder="password">
-                <div id="remForgBox">
+                <!-- <div id="remForgBox">
                     <div id="rememberB">
                         <input type="checkbox" name="" id="rem" class="signInInputs">
                         <span>Rember me</span>
@@ -107,7 +111,7 @@
                     <div id="forgotB">
                         <a href="">Forgot password?</a>
                     </div>
-                </div>
+                </div> -->
                 <button type="submit" id="signInB">Sign in</button>
             </form>
             <p id="registerLink">or Register</p>
@@ -141,6 +145,24 @@
     <main class="blogSection">
         <div class="blogMainSection">
             <div class="blogsingle">
+            </div>
+
+            <div class="commentSection">
+                <!-- <div class="singleComment">
+                    <h3>Sebastien</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Necessitatibus nisi quibusdam minus mollitia ab ratione 
+                        eligendi omnis, voluptatum eius doloribus.
+                    </p>
+                </div> -->
+                <h5>We would like to have your insight about this!</h5>
+                <form action="" id="commentForm">
+                    <input type="text" name="name" id="commentName" placeholder="Enter your name">
+                    <input type="hidden" name="blogid" value="" id="blogid">
+                    <textarea name=""  cols="30" rows="10" id="commentText">Enter your comment</textarea>
+                    <button id="commentSubBtn">Submit</button>
+                </form>
             </div>
         </div>
         <div class="blogSideBar">
@@ -192,7 +214,9 @@
         </div>
     </section>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
     <script src="../js/main.js"></script>
     <script src="../../js/firebase.js"></script>

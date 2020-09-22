@@ -17,6 +17,9 @@
             <div><a href="#projects">Projects</a></div>
             <div><a href="blog.html">Blog</a></div>
             <div><a href="contact.html">Contact me</a></div>
+            <div><a class="signin">Sign in</a></div>            
+            <div><a class="logout">Log out</a></div>
+            <div><a href="admin/dashboard.html" class="dashboard">Dashboard</a></div>
         </div>
         <div class="navlinksForPhone">
             <div class="navS1"></div>
@@ -42,6 +45,9 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact me</a></li>
+                    <div><a class="signin">Sign in</a></div>
+                    <div><a class="logout">Log out</a></div>
+                    <div><a class="dashboard">Dashboard</a></div>
                 </ul>
             </div>
             <div class="navSocioIcons">
@@ -78,6 +84,64 @@
             </div>
         </div>
     </nav>
+    <div class="loginModal">
+        <div class="closer">
+            <span id="closeL">X</span>
+        </div>
+        <div class="ModalHeader">
+            <h3>Sign in</h3>
+        </div>
+        <div class="body">
+            <form id="signInForm">
+                <div class="errorBox disNone" id="unameErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <input type="text" class="signInInputs" id="uname" placeholder="Username">
+                <div class="errorBox disNone" id="passErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div>
+                <input type="password" class="signInInputs" id="pass" placeholder="password">
+                <!-- <div id="remForgBox">
+                    <div id="rememberB">
+                        <input type="checkbox" name="" id="rem" class="signInInputs">
+                        <span>Rember me</span>
+                    </div>
+                    <div id="forgotB">
+                        <a href="">Forgot password?</a>
+                    </div>
+                </div> -->
+                <button type="submit" id="signInB">Sign in</button>
+            </form>
+            <p id="registerLink">or Register</p>
+        </div>
+    </div>
+    <div class="registerModal">
+        <div class="closer">
+            <span id="closeR">X</span>
+        </div>
+        <div class="ModalHeader">
+            <h3>Sign up</h3>
+        </div>
+        <div class="body">
+            <form id="RegisterForm">
+                <!-- <div class="errorBox disNone" id="unameErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div> -->
+                <input type="text" class="signInInputs" id="username" placeholder="Username">
+                <input type="text" class="signInInputs" id="useremail" placeholder="email">
+                <!-- <div class="errorBox disNone" id="passErrorBox">
+                    <p>Please Enter Password</p>
+                    <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+                </div> -->
+                <input type="password" class="signInInputs" id="userpass" placeholder="password">
+                <button type="submit" id="registerB">Sign in</button>
+            </form>
+            <p id="loginLink">or Login</p>
+        </div>
+    </div>
     <main class="contactMainSec">
        <div class="contactLeftSec">
            <h3>How To Get to us</h3>
@@ -92,13 +156,29 @@
        <div class="contactRightSec">
            <h3>Text me directly</h3>
            <form id="contactForm">
+               <div class="successBox">
+                   <p>Thanks for your Message we'll contact you soon</p>
+                   <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+               </div>
+               <div class="errorBox" id="AllErrorBox">
+                   <p>Please fill all inputs</p>
+                   <span class="closer">X</span>
+               </div>
                <div class="formGroup formGroup2">
                     <input type="text" name="" id="firstName" class="myInput input2" placeholder="First name">
                     <input type="text" name="" id="lastName" class="myInput input2" placeholder="Last name">
                </div>
+               <div class="errorBox" id="emailErrorBox">
+                   <p>Please enter a valid email</p>
+                   <span class="closer">X</span>
+                </div>
                <div class="formGroup">
                    <input type="text" name="" id="email" class="myInput" placeholder="Email">
                </div>
+               <div class="errorBox" id="messErrorBox">
+                   <p>Please enter a message more than 20 characters</p>
+                   <span class="closer">X</span>
+                </div>
                <div class="formGroup">
                    <textarea name="" id="message" cols="30" rows="10" class="myInput" placeholder="YOur message..."></textarea>
                </div>
@@ -128,18 +208,28 @@
         <div class="FskillSec">
             <h3 class="footerHeader">Follow me</h3>
             <div class="socialLinks">
-                <a href="" class="socialicon"><img src="../images/twitter.png" alt="" width="100%"></a>
-                <a href="" class="socialicon"><img src="../images/fb.png" alt="" width="100%"></a>
-                <a href="" class="socialicon"><img src="../images/insta.png" alt="" width="100%"></a>
-                <a href="" class="socialicon"><img src="../images/linkdin.png" alt="" width="100%"></a>
-                <a href="" class="socialicon"><img src="../images/tsapp.png" alt="" width="100%"></a>
-                <a href="" class="socialicon"><img src="../images//skype.png" alt="" width="100%"></a>
+                <a href="https://twitter.com/NdagijimanaSeba" target="_blank" class="socialicon"><img src="../images/twitter.png" alt="" width="100%"></a>
+                <a href="https://web.facebook.com/ndagijimana.sebastien" target="_blank" class="socialicon"><img src="../images/fb.png" alt="" width="100%"></a>
+                <a href="https://www.instagram.com/sebz_250/" target="_blank" class="socialicon"><img src="../images/insta.png" alt="" width="100%"></a>
+                <a href="www.linkedin.com/in/ndagijimana-sebastien-7016a0154" target="_blank" class="socialicon"><img src="../images/linkdin.png" alt="" width="100%"></a>
+                <a href="https://wa.link/0caw88" target="_blank" class="socialicon"><img src="../images/tsapp.png" alt="" width="100%"></a>
+                <a href="" target="_blank" class="socialicon"><img src="../images//skype.png" alt="" width="100%"></a>
             </div>
             <ul id="Fcontacts">
                 <li><img src="../images/location icon.png" alt=""> Kigali/Rwanda 316st</li>
                 <li><img src="../images/phone.png" alt=""> +250-788-451-691</li>
+                <li>User Location</li>
+                <li id="demo"></li>
             </ul>
         </div>
     </section>
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+    <script src="../../js/firebase.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/contact.js"></script>
 </html>

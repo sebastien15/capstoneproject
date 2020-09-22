@@ -1,0 +1,24 @@
+{
+  "name": "capstone-project",
+  "version": "1.0.0",
+  "description": "Capstone project is a portifolio website designed from scratch using FIGMA for UI, Html5, Css3 and javascript.it has a beautiful black UI background.\r Hope you'll love it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastien15/capstoneproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastien15/capstoneproject/issues"
+  },
+  "homepage": "https://github.com/sebastien15/capstoneproject#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20"
+  }
+}
