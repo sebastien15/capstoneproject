@@ -4,7 +4,8 @@ import "dotenv/config";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import blogRoutes from "./routes/blogRoutes";
-const contactRoutes = require('./routes/contactRoutes');
+import commentRoutes from "./routes/commentRoutes";
+import contactRoutes from "./routes/contactRoutes";
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.json());
 //routers
 app.use(blogRoutes);
 app.use(contactRoutes);
+app.use(commentRoutes);
 
 // page routers
 app.get('/',(req,res)=>{
