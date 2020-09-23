@@ -26,9 +26,19 @@ const deleteBlog =  (req,res)=>{
     Blog.findByIdAndDelete(id)
     .then(result=>{res.json({ redirect:'/'})})
 }
-
+const updateBlog = async (req,res)=>{
+    const id = req.params.id;
+    const {title,body,photo} = req.body;
+    try{
+        const blog = await Blog.findByIdAndUpdate(id,{title,body,photo});
+        res.status(400).json(blog)
+    }catch (err){
+        console.log(err)
+    }
+}
 module.exports = {
     addBlog,
     index,
+    updateBlog,
     deleteBlog
 }
