@@ -32,7 +32,16 @@ const saveContact = async (req,res)=>{
     }
 }
 
+const deleteContact = (req,res)=>{
+    const contactId = req.params.id;
+    try {
+        Contact.findByIdAndDelete(contactId).then(result=>{res.json({ redirect:'/'})});
+    } catch (err) {
+        res.send(err)
+    }
+}
 module.exports = {
     index,
-    saveContact
+    saveContact,
+    deleteContact
 };
