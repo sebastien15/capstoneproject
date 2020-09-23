@@ -17,11 +17,19 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 // view engine
 
 app.set('view engine', 'ejs');
-app.set('views','templates')
+app.set('views','templates');
+app.use(morgan('dev'));
+
+
+
+// middleware and static files
+
+app.use(express.static('templates'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //routers
 app.use(blogRoutes);
-
 
 // page routers
 app.get('/',(req,res)=>{
