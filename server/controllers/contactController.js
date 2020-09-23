@@ -12,6 +12,15 @@ const handleErrors = (err)=>{
     }
 }
 
+
+const index = (req,res)=>{
+    try {
+        Contact.find().then(result=>res.send(result));
+    } catch (err) {
+        console.log(err.message)
+    }
+}
+
 const saveContact = async (req,res)=>{
     const {firstName,lastName,email,message} = req.body;
     try {
@@ -24,5 +33,6 @@ const saveContact = async (req,res)=>{
 }
 
 module.exports = {
+    index,
     saveContact
 };
