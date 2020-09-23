@@ -20,7 +20,15 @@ const addBlog = async (req,res)=>{
         handleErrors(err)
     }
 }
+
+const deleteBlog =  (req,res)=>{
+    const id = req.params.id
+    Blog.findByIdAndDelete(id)
+    .then(result=>{res.json({ redirect:'/'})})
+}
+
 module.exports = {
     addBlog,
-    index
+    index,
+    deleteBlog
 }
