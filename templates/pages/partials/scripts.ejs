@@ -1,0 +1,14 @@
+<script>
+    const RegisterForm = document.querySelector('#RegisterForm');
+    RegisterForm.addEventListener('submit',(e)=>{
+        e.preventDefault();
+    
+        //get input values
+        const name = RegisterForm.name.value;
+        const email = RegisterForm.email.value;
+        const password = RegisterForm.password.value;
+    
+        console.log(name, email, password)
+    })
+    </script>
+    <script src="js/main.js"></script>

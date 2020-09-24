@@ -4,6 +4,7 @@ import "dotenv/config";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import blogRoutes from "./routes/blogRoutes";
+import authRoutes from "./routes/authRoutes";
 
 const app = express();
 
@@ -28,19 +29,23 @@ app.use(express.json());
 
 //routers
 app.use(blogRoutes);
+app.use(authRoutes);
 
 // page routers
 app.get('/',(req,res)=>{
-    // res.sendFile('./templates/index.ejs',{ root: __dirname })
     res.render('index')
 })
 
 app.get('/contact',(req,res)=>{
-    // res.sendFile('./templates/pages/contact.html',{ root: __dirname })
     res.render('pages/contact')
+})
+app.get('/blog',(req,res)=>{
+    res.render('pages/blog')
+})
+app.get('/blogSingle',(req,res)=>{
+    res.render('pages/blogSingle')
 })
 
 app.use((req,res)=>{
-    // res.sendFile('./templates/pages/404.html',{ root: __dirname })
     res.render('pages/404',{title: 'sebasttien'})
 })
