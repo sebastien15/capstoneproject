@@ -13,6 +13,7 @@ const saveComment = async (req,res)=>{
     }
 }
 
+
 const allComments = async (req,res)=>{
     try {
         const comments= await Comment.find();
@@ -22,8 +23,16 @@ const allComments = async (req,res)=>{
     }
 }
 
+const deleteComment = (req,res)=>{
+    const commentId = req.params.id
+    // console.log(req.params.id)
+    Comment.findOneAndDelete(commentId)
+    .then(result=>{res.json(result)})
+    .catch(err=>{console.log(err)})       
+}
+
 module.exports = {
     saveComment,
-    allComments
-    // deleteComment
+    allComments,
+    deleteComment
 }
