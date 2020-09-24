@@ -20,7 +20,16 @@ const addBlog = async (req,res)=>{
         handleErrors(err)
     }
 }
-
+const singleBlog =  async (req,res)=>{
+    const id = req.params.id
+    try{
+        const blog = await Blog.findById(id)
+        // res.set('Content-Type', 'image/jpeg');
+        res.send(blog);
+    }catch(err){
+        console.log(err);
+    }
+}
 const deleteBlog =  (req,res)=>{
     const id = req.params.id
     Blog.findByIdAndDelete(id)
@@ -40,5 +49,6 @@ module.exports = {
     addBlog,
     index,
     updateBlog,
-    deleteBlog
+    deleteBlog,
+    singleBlog
 }
