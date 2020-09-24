@@ -14,7 +14,6 @@ const handleErrors = (err)=>{
 
 const saveContact = async (req,res)=>{
     const {firstName,lastName,email,message} = req.body;
-    // console.log(firstName,lastName,email,message)
 
     try {
         const contact = await Contact.create({firstName,lastName,email,message});
