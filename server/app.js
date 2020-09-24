@@ -20,8 +20,6 @@ app.set('view engine', 'ejs');
 app.set('views','templates');
 app.use(morgan('dev'));
 
-
-
 // middleware and static files
 
 app.use(express.static('templates'));
