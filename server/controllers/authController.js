@@ -1,6 +1,7 @@
 const User = require('../models/user')
 
 const handleErrors = (err)=>{
+    console.log(err.message, err.code);
     let errors = {email: '', password: ''};
 
     //duplicate error code
@@ -37,8 +38,10 @@ const signup_post = async (req,res) =>{
     }
 }
 const login_get = (req,res) =>{
+    // res.render('signup')
 }
 const login_post = async (req,res) =>{
+    // res.render('signup')
     res.send('logged in')
 }
 
