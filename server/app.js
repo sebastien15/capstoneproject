@@ -3,8 +3,7 @@ import _ from "lodash";
 import "dotenv/config";
 import morgan from "morgan";
 import mongoose from "mongoose";
-import blogRoutes from "./routes/blogRoutes";
-const contactRoutes = require('./routes/contactRoutes');
+import appRoutes from "./routes/routes";
 
 const app = express();
 
@@ -28,21 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //routers
-app.use(blogRoutes);
-app.use(contactRoutes);
-
-// page routers
-app.get('/',(req,res)=>{
-    // res.sendFile('./templates/index.ejs',{ root: __dirname })
-    res.render('index')
-})
-
-app.get('/contact',(req,res)=>{
-    // res.sendFile('./templates/pages/contact.html',{ root: __dirname })
-    res.render('pages/contact')
-})
-
+app.use(appRoutes);
 app.use((req,res)=>{
-    // res.sendFile('./templates/pages/404.html',{ root: __dirname })
     res.render('pages/404',{title: 'sebasttien'})
 })
