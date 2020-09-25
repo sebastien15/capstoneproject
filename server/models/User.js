@@ -4,6 +4,7 @@ const schema = mongoose.Schema;
 const {isEmail} = require('validator')
 import jwt from 'jsonwebtoken';
 import "dotenv/config";
+import bcrypt from 'bcrypt';
 
 const userSchema = new schema({
     email: {
@@ -29,6 +30,20 @@ const userSchema = new schema({
     }
 
 });
+// fire a function after doc saved to db
+userSchema.post('save', function(doc,next){
+    console.log('new user was created and saved',doc);
+    next();
+})
+
+//fire a function before doc saved to db
+userSchema.pre('save', async function(next){
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+
+    console.log("user about to be created and saved", this.password);
+    next();
+})
 
 userSchema.methods.generateAuthToken = async function () {
     const user = this
