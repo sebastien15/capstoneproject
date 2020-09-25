@@ -1,0 +1,30 @@
+<div class="registerModal">
+    <div class="closer">
+        <span id="closeR">X</span>
+    </div>
+    <div class="ModalHeader">
+        <h3>Sign up</h3>
+    </div>
+    <div class="body">
+        <form id="RegisterForm">
+            <div class="errorBox disNone" id="unameErrorBox">
+                <p>Please Enter your name</p>
+                <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+            </div>
+            <input type="text" class="signInInputs" id="username" placeholder="name" name="name">
+            <div class="errorBox disNone" id="uemailErrorBox">
+                <p>Please Enter Your Email</p>
+                <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+            </div>
+            <input type="text" class="signInInputs" id="useremail" placeholder="email" name="email">
+            <div class="errorBox disNone" id="passErrorBox">
+                <p>Please Enter Password</p>
+                <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+            </div>
+            <input type="hidden" name="role" value="subscriber">
+            <input type="password" class="signInInputs" id="userpass" placeholder="password" name="password">
+            <button type="submit" id="registerB">Sign in</button>
+        </form>
+        <p id="loginLink">or Login</p>
+    </div>
+</div>

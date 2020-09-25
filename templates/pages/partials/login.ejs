@@ -1,0 +1,33 @@
+<div class="loginModal">
+    <div class="closer">
+        <span id="closeL">X</span>
+    </div>
+    <div class="ModalHeader">
+        <h3>Sign in</h3>
+    </div>
+    <div class="body">
+        <form id="signInForm">
+            <div class="errorBox disNone" id="unameErrorBox">
+                <p>Please Enter Password</p>
+                <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+            </div>
+            <input type="text" class="signInInputs" id="uname" placeholder="Username">
+            <div class="errorBox disNone" id="passErrorBox">
+                <p>Please Enter Password</p>
+                <span class="closer" onclick="this.parentNode.style.display='none'">X</span>
+            </div>
+            <input type="password" class="signInInputs" id="pass" placeholder="password">
+            <!-- <div id="remForgBox">
+                <div id="rememberB">
+                    <input type="checkbox" name="" id="rem" class="signInInputs">
+                    <span>Rember me</span>
+                </div>
+                <div id="forgotB">
+                    <a href="">Forgot password?</a>
+                </div>
+            </div> -->
+            <button type="submit" id="signInB">Sign in</button>
+        </form>
+        <p id="registerLink">or Register</p>
+    </div>
+</div>
