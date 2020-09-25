@@ -1,9 +1,8 @@
-<%- include('partials/header.ejs'); %>
+<%- include('partials/header')  %>
 <body>
-    <%- include('partials/nav.ejs') %> 
-
-    <%- include('partials/loginModal.ejs') %> 
-    <%- include('partials/registerModal.ejs') %>     
+    <%- include('partials/nav')  %>
+    <%- include('partials/login')  %>
+    <%- include('partials/register')  %>
     <main class="blogSection">
         <div class="blogMainSection">
             <div class="blogsingle">
@@ -40,13 +39,7 @@
             </div>
         </div>
     </main>
-    <%- include('partials/footer.ejs') %>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../../js/firebase.js"></script>
+    <%- include('partials/footer')  %>
+    <%- include('partials/scripts')  %>
 </body>
 </html>
