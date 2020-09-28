@@ -1,0 +1,20 @@
+<script>
+const RegisterForm = document.querySelector('#RegisterForm');
+RegisterForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    //get input values
+    const name = RegisterForm.name.value;
+    const email = RegisterForm.email.value;
+    const password = RegisterForm.password.value;
+
+    console.log(name, email, password)
+})
+</script>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+<script src="js/firebase.js"></script> -->
+<script src="js/main.js"></script>

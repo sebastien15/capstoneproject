@@ -61,8 +61,8 @@
       const password = signupform['userpass'].value
 
       if(email != "" || password != ""){
-        document.getElementById('#unameErrorBox').style.display='block';
-        document.getElementById('#passErrorBox').style.display='block';
+        document.querySelector('#unameErrorBox').style.display='block';
+        document.querySelector('#passErrorBox').style.display='block';
       }
       //signup user
 
@@ -75,7 +75,7 @@
         dash.forEach(btn=>{
           btn.parentElement.style.display='block'
         })
-        window.location.href = "http://127.0.0.1:5500/pages/admin/dashboard.html";
+        window.location.href = "/dashboard.html";
       })  
     })
 
