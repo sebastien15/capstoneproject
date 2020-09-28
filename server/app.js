@@ -8,7 +8,7 @@ import authRoutes from "./routes/authRoutes";
 
 const app = express();
 
-app.listen(3000);
+app.listen(5000);
 // connect to the database
 const dbURI = process.env.DATABASE_URL;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })

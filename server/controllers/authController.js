@@ -50,8 +50,15 @@ const login_get = (req,res) =>{
     // res.render('signup')
 }
 const login_post = async (req,res) =>{
-    // res.render('signup')
-    res.send('logged in')
+    const {email, password} = req.body;
+
+    try {
+        const user = await User.login(email,password);
+        res.status(200).json({user: user._id});
+    } catch (err) {
+        console.log(err)
+        res.status(400).json({err});
+    }
 }
 
 const logout = (req,res) =>{
