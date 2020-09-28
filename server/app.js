@@ -3,7 +3,7 @@ import _ from "lodash";
 import "dotenv/config";
 import morgan from "morgan";
 import mongoose from "mongoose";
-import blogRoutes from "./routes/blogRoutes";
+import appRoutes from "./routes/routes";
 import authRoutes from "./routes/authRoutes";
 
 const app = express();
@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //routers
-app.use(blogRoutes);
+app.use(appRoutes);
 app.use(authRoutes);
 
 // page routers
@@ -45,7 +45,6 @@ app.get('/blog',(req,res)=>{
 app.get('/blogSingle',(req,res)=>{
     res.render('pages/blogSingle')
 })
-
 app.use((req,res)=>{
     res.render('pages/404',{title: 'sebasttien'})
 })
