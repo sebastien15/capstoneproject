@@ -67,6 +67,7 @@ const login_post = async (req,res) =>{
         const token = await user.generateAuthToken();
         const maxAge = 3*24*0*60;
         res.cookie('jwt', token, {httpOnly: true,maxAge: maxAge});
+        res.setHeader('jwt',token)
         res.status(200).json({token: token});
     } catch (err) {
         const errors = handleErrors(err)

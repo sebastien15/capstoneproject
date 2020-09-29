@@ -5,9 +5,10 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import appRoutes from "./routes/routes";
 import authRoutes from "./routes/authRoutes";
+import cookieParser from "cookie-parser";
 
 const app = express();
-app.listen(5000);
+app.listen(3000);
 // connect to the database
 const dbURI = process.env.DATABASE_URL;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -25,6 +26,7 @@ app.use(morgan('dev'));
 app.use(express.static('templates'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser())
 
 //routers
 app.use(appRoutes);
