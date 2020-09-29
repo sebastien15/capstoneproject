@@ -5,6 +5,13 @@ import ImageProcessor from "../middlewares/blogImageProcessor";
 import upload from "../config/multerConfig";
 import blogController from "../controllers/blogController";
 
+
+// page routers
+router.get('/',(req,res)=>{ res.render('index')});
+router.get('/contact',(req,res)=>{res.render('pages/contact')});
+router.get('/blog',(req,res)=>{res.render('pages/blog')});
+router.get('/blogSingle',(req,res)=>{res.render('pages/blogSingle')});
+
 // app routes
 router.get('/',(req,res)=>{res.render('index')})
 router.get('/contact',(req,res)=>{res.render('pages/contact')})
@@ -20,14 +27,9 @@ router.delete('/deleteBlog/:id',blogController.deleteBlog)
 router.put('/updateBlog/:id',upload.single('photo'),ImageProcessor,blogController.updateBlog)
 router.get('/single-blog/:id',blogController.singleBlog)
 
-
-
 //contact routes
 
-// router.get('/contacts',contactController.index);
 router.post('/savecontact',contactController.saveContact);
-// router.delete('/deleteContact/:id',contactController.deleteContact);
-
 
 
 

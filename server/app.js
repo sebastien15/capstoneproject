@@ -7,7 +7,6 @@ import appRoutes from "./routes/routes";
 import authRoutes from "./routes/authRoutes";
 
 const app = express();
-
 app.listen(5000);
 // connect to the database
 const dbURI = process.env.DATABASE_URL;
@@ -30,21 +29,4 @@ app.use(express.json());
 //routers
 app.use(appRoutes);
 app.use(authRoutes);
-
-// page routers
-app.get('/',(req,res)=>{
-    res.render('index')
-})
-
-app.get('/contact',(req,res)=>{
-    res.render('pages/contact')
-})
-app.get('/blog',(req,res)=>{
-    res.render('pages/blog')
-})
-app.get('/blogSingle',(req,res)=>{
-    res.render('pages/blogSingle')
-})
-app.use((req,res)=>{
-    res.render('pages/404',{title: 'sebasttien'})
-})
+app.use((req,res)=>{res.render('pages/404',{title: 'sebasttien'})});
