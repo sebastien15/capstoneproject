@@ -31,7 +31,8 @@ app.use(express.json());
 app.use(appRoutes);
 app.use(authRoutes);
 
-
 app.use((req,res)=>{
-    res.render('pages/404',{title: 'sebasttien'})
+    res.status(404).render('pages/404',{title: 'sebasttien'});
 })
+
+module.exports = app
