@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-  - "stable"
-script: gulp travis
-
-# deploy: 
-#   provider: heroku
-#   api-key:
-#     secure:
