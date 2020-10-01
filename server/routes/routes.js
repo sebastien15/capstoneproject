@@ -32,6 +32,7 @@ router.delete('/api/contacts/:id',contactController.deleteContact);
 //comment routes
 router.get('/api/Comments', commentController.allComments);
 router.post('/api/Comments', commentController.saveComment);
+router.delete('/api/Comments', commentController.deleteComment);
 
 
 module.exports = router;

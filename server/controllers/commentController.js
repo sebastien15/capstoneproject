@@ -21,9 +21,16 @@ const allComments = async (req,res)=>{
         console.log(error)
     }
 }
+const deleteComment = (req,res)=>{
+    const commentId = req.params.id
+    Comment.findOneAndDelete(commentId)
+    .then(result=>{res.json(result)})
+    .catch(err=>{console.log(err)})       
+}
+
 
 module.exports = {
     saveComment,
-    allComments
-    // deleteComment
+    allComments,
+    deleteComment
 }
