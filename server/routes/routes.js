@@ -10,7 +10,7 @@ import commentController from "../controllers/commentController";
 router.get('/',(req,res)=>{res.render('index')})
 router.get('/contact',(req,res)=>{res.render('pages/contact')})
 router.get('/blog',(req,res)=>{res.render('pages/blog')})
-router.get('/single-blog',(req,res)=>{res.render('pages/single-blog')})
+router.get('/single-blog',(req,res)=>{res.render('pages/blogSingle')})
 router.get('/dashboard',(req,res)=>{res.render('pages/dashboard')})
 
 // blog routes
