@@ -5,7 +5,18 @@ import 'dotenv/config'
 const handleErrors = (err)=>{
     console.log(err.message, err.code);
     let errors = {email: '', password: ''};
-
+    //login 
+       //incorrect email
+       if(err.message === "incorrect email"){
+           errors.email = 'Sorry email or password is incorrect';
+           return errors;
+       }
+       //incorrect password
+       if(err.message === "incorrect password"){
+           errors.password = 'Sorry email or password is incorrect';
+           return errors;
+       }
+       
     //duplicate error code
     if(err.code == 11000){
         errors.email = "that email is already registered";
@@ -29,7 +40,7 @@ const createToken = (id)=>{
     })
 }
 const signup_get = (req,res) =>{
-    // res.render('signup')
+    res.render('signup')
 }
 const signup_post = async (req,res) =>{
     const {email,password,name,role} = req.body
@@ -50,12 +61,22 @@ const login_get = (req,res) =>{
     // res.render('signup')
 }
 const login_post = async (req,res) =>{
-    // res.render('signup')
-    res.send('logged in')
+    const {email, password} = req.body;
+    try {
+        const user = await User.login(email,password);
+        const token = await user.generateAuthToken();
+        const maxAge = 3*24*0*60;
+        res.cookie('jwt', token, {httpOnly: true,maxAge: maxAge});
+        res.setHeader('jwt',token)
+        res.status(200).json({token: token});
+    } catch (err) {
+        const errors = handleErrors(err)
+        res.status(400).json({errors});
+    }
 }
 
 const logout = (req,res) =>{
-    // res.render('signup')
+    res.render('logged out')
 }
 
 module.exports= {
