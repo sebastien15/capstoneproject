@@ -7,7 +7,6 @@ const handleErrors = (err)=>{
 
 
 const index =  (req,res)=>{
-    console.log('working')
     Blog.find().then(result=>{res.send(result)})
     .catch(err=>{console.log(err)})
 }
