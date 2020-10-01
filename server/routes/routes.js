@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router();
+import contactController from '../controllers/contactController';
 import ImageProcessor from "../middlewares/blogImageProcessor";
 import upload from "../config/multerConfig";
 import blogController from "../controllers/blogController";
-import contactController from '../controllers/contactController';
 import commentController from "../controllers/commentController";
 
 // app routes
 router.get('/',(req,res)=>{res.render('index')})
-router.get('/contact',(req,res)=>{res.render('pages/contact')})
+router.get('/contactus',(req,res)=>{res.render('pages/contact')})
 router.get('/blog',(req,res)=>{res.render('pages/blog')})
 router.get('/single-blog',(req,res)=>{res.render('pages/blogSingle')})
 router.get('/dashboard',(req,res)=>{res.render('pages/dashboard')})
@@ -32,7 +32,6 @@ router.delete('/api/contacts/:id',contactController.deleteContact);
 //comment routes
 router.get('/api/Comments', commentController.allComments);
 router.post('/api/Comments', commentController.saveComment);
-
 
 
 module.exports = router;
