@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{res.render('index')})
 router.get('/contactus',(req,res)=>{res.render('pages/contact')})
 router.get('/blog',(req,res)=>{res.render('pages/blog')})
 router.get('/single-blog',(req,res)=>{res.render('pages/blogSingle')})
-router.get('/dashboard',(req,res)=>{res.render('pages/dashboard')})
+router.get('/dashboard',(req,res)=>{res.render('pages/admin/dashboard')})
 
 // blog routes
 
